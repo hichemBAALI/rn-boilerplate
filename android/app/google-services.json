@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "484488033781",
+    "project_id": "boilerplate-2eb06",
+    "storage_bucket": "boilerplate-2eb06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484488033781:android:f14ff4e2f2eb9358c95cbc",
+        "android_client_info": {
+          "package_name": "com.hichem.boilerplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484488033781-8c84oj5pnu6jqi3d6ntb7i2f7kekhqpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPlD94UB6SMnqP60i_7Ytx1MAYtYoY_Lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484488033781-8c84oj5pnu6jqi3d6ntb7i2f7kekhqpp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484488033781:android:eab6e6ae681cb883c95cbc",
+        "android_client_info": {
+          "package_name": "com.hichem.boilerplate.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484488033781-8c84oj5pnu6jqi3d6ntb7i2f7kekhqpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPlD94UB6SMnqP60i_7Ytx1MAYtYoY_Lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484488033781-8c84oj5pnu6jqi3d6ntb7i2f7kekhqpp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

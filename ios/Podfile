@@ -1,0 +1,64 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '10.0'
+project 'Boilerplate.xcodeproj'
+
+target 'Boilerplate' do
+  rn_maps_path = '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+  # add the Firebase pod for Google Analytics
+  pod 'Firebase/Crashlytics'
+  # add the Firebase pod for Google Analytics
+  pod 'Firebase/Analytics'
+  # add the pod for Firebase Core
+  pod 'Firebase/Core'
+  # Add the pod for Firebase Cloud Messaging
+  pod 'Firebase/Messaging'
+  # add pods for any other desired Firebase products
+  # https://firebase.google.com/docs/ios/setup#available-pods
+  config = use_native_modules!
+  use_react_native!(:path => config["reactNativePath"])
+
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-LocationAccuracy', :path => "#{permissions_path}/LocationAccuracy"
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+
+  pod 'react-native-version-number', :path => '../node_modules/react-native-version-number'
+
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+
+  pod 'react-native-restart', :path => '../node_modules/react-native-restart'
+
+  pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
+
+  target 'BoilerplateTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable these next few lines.
+  use_flipper!({ 'Flipper' => '0.74.0' })
+  post_install do |installer|
+    flipper_post_install(installer)
+  end
+end
+
+target 'Boilerplate-tvOS' do
+  # Pods for Boilerplate-tvOS
+
+  target 'Boilerplate-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end

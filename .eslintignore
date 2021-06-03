@@ -1,0 +1,8 @@
+# ignore path
+node_modules/
+__tests__/
+__mocks__/
+jest/
+android/
+ios/
+scripts/

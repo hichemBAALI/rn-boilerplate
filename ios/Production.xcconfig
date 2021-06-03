@@ -1,0 +1,21 @@
+//
+//  Production.xcconfig
+//  Boilerplate
+//
+//  Created by hichem on 11/3/20.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Development.xcconfig
+// Server URL
+ROOT_URL = https:/$()/stg-api.boilerplate.io
+
+// Keys
+API_KEY = 783u9djd8a_hkzos7jd803001nd
+
+// App Settings
+APP_NAME = Boilerplate
+APP_BUNDLE_ID = com.hichem.boilerplate
+

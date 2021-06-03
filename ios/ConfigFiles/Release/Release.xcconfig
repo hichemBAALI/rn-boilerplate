@@ -1,0 +1,11 @@
+//
+//  Release.xcconfig
+//  Boilerplate
+//
+//  Created by hichem on 11/4/20.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+APP_BUNDLE_IDENTIFIER = com.hichem.boilerplate
+APP_DISPLAY_NAME = Boilerplate

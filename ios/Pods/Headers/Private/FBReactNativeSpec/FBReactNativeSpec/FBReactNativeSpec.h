@@ -1,0 +1,1 @@
+../../../../../../node_modules/react-native/React/FBReactNativeSpec/native/Rivizi/Rivizi-app/node_modules/react-native/React/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec.h
