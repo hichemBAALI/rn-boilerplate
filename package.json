@@ -51,7 +51,7 @@
     "numeral": "^2.0.6",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
-    "react-native": "0.64.0",
+    "react-native": "0.63.4",
     "react-native-background-timer": "^2.4.1",
     "react-native-country-picker-modal": "^2.0.0",
     "react-native-dash": "0.0.11",
