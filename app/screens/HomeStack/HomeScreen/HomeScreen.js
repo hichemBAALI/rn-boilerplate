@@ -39,38 +39,6 @@ class HomeScreen extends Component {
           color={colors.grey_300}
           style={{ padding: 16 }}
         />
-        <CustomTextInput
-          onChangeText={(text) => Log(text)}
-          holderIconName="user-3-line"
-          status={this.state.usernameStatus}
-          value={this.state.username}
-          onFocus={() => { this.setState({ usernameStatus: IS_FOCUS }); }}
-          onBlur={() => { this.setState({ usernameStatus: IS_BLUR }); }}
-          placeholder={locale('Username')}
-        />
-        <CustomTextInput
-          onChangeText={(text) => Log(text)}
-          holderIconName="lock-2-line"
-          status={this.state.passwordStatus}
-          value={this.state.password}
-          onFocus={() => { this.setState({ passwordStatus: IS_FOCUS }); }}
-          onBlur={() => { this.setState({ passwordStatus: IS_BLUR }); }}
-          secureTextEntry={this.state.secureTextEntry}
-          placeholder={locale('Password')}
-          sideComponent={(
-            <TouchableOpacity
-              onPress={() => this.setState({
-                secureTextEntry: !this.state.secureTextEntry,
-              })}
-            >
-              <RemixIcon
-                name={this.state.secureTextEntry ? 'eye-line' : 'eye-off-line'}
-                size={18}
-                color={colors.grey_550}
-              />
-            </TouchableOpacity>
-              )}
-        />
         <Button
           onPress={() => this.props.navigation.navigate(`${HOME_SCREEN}1`)}
           text="Next"

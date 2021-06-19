@@ -1,4 +1,6 @@
 {
   "Username": "Username",
-  "Password": "Password"
+  "Password": "Password",
+  "Login": "Login",
+  "Forget Password": "Forget Password ?"
 }

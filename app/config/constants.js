@@ -20,6 +20,7 @@ export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
 
 // Screens Stack
 export const SPLASH_STACK = 'SplashStack';
+export const LOGIN_STACK = 'LoginStack';
 export const HOME_STACK = 'HomeStack';
 export const SCAN_STACK = 'ScanStack';
 export const SETTINGS_STACK = 'SettingsStack';
@@ -28,6 +29,7 @@ export const BOTTOM_NAV_ITEMS_NUMBER = 3;
 
 // Screens Name
 export const SPLASH_SCREEN = 'SplashScreen';
+export const LOGIN_SCREEN = 'LoginScreen';
 export const HOME_SCREEN = 'HomeScreen';
 export const SCAN_SCREEN = 'ScanScreen';
 export const SETTINGS_SCREEN = 'SettingsScreen';
