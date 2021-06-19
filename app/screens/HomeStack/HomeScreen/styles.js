@@ -7,4 +7,16 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
+  toggleItemStyle: {
+    zIndex: -1,
+    flex: 1,
+    minWidth: 80,
+    borderRadius: 16,
+    padding: 8,
+    margin: 4,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderWidth: 1,
+    alignItems: 'center',
+  }
 });

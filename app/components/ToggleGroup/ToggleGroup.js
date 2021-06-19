@@ -37,7 +37,7 @@ class ToggleGroup extends Component {
     const {
       horizontal,
       containerStyle,
-        innerContainerStyle,
+      innerContainerStyle,
       values,
       onItemClick,
       itemRenderSelected,

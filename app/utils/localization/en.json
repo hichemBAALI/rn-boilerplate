@@ -2,5 +2,12 @@
   "Username": "Username",
   "Password": "Password",
   "Login": "Login",
-  "Forget Password": "Forget Password ?"
+  "Forget Password": "Forget Password ?",
+  "Exit App": "Exit App",
+  "Exiting the application": "Exiting the application",
+  "cancel": "cancel",
+  "confirm": "confirm"
+
+
+
 }
