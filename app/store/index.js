@@ -11,7 +11,7 @@ import rootReducers from '../reducers';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['quiz', 'user', 'configuration', 'quizHistory'],
+  whitelist: ['user', 'configuration'],
 };
 const logger = createLogger({
   collapsed: true,

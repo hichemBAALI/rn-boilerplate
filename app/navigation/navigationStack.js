@@ -5,13 +5,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSelector } from 'react-redux';
 import SplashScreen from '../screens/SplashScreen';
 import {
-  SPLASH_SCREEN,
-  HOME_SCREEN,
-  SCAN_SCREEN,
-  SETTINGS_SCREEN,
-  HOME_STACK,
-  SCAN_STACK,
-  SETTINGS_STACK, SPLASH_STACK, BOTTOM_NAV_STACK,
+    SPLASH_SCREEN,
+    HOME_SCREEN,
+    SCAN_SCREEN,
+    SETTINGS_SCREEN,
+    HOME_STACK,
+    SCAN_STACK,
+    SETTINGS_STACK, SPLASH_STACK, BOTTOM_NAV_STACK, LOGIN_SCREEN, LOGIN_STACK,
 } from '../config/constants';
 import colors from '../config/colors';
 import BottomNavBar from '../components/BottomNavBar';
@@ -21,9 +21,11 @@ import RemixIcon from '../utils/icon/RemixIcons';
 import HomeScreen from '../screens/HomeStack/HomeScreen';
 import ScanScreen from '../screens/ScanStack/ScanScreen';
 import SettingsScreen from '../screens/SettingsStack/SettingsScreen';
+import LoginScreen from "../screens/LoginStack/HomeScreen/LoginScreen";
 
 const RootStack = createStackNavigator();
 const SplashStack = createStackNavigator();
+const LoginStack = createStackNavigator();
 const HomeStack = createStackNavigator();
 const ScanStack = createStackNavigator();
 const SettingsStack = createStackNavigator();
@@ -51,6 +53,16 @@ const SplashStackScreens = () => (
   >
     <SplashStack.Screen name={SPLASH_SCREEN} component={SplashScreen} />
   </SplashStack.Navigator>
+);
+
+const LoginStackScreens = () => (
+  <LoginStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
+    <LoginStack.Screen name={LOGIN_SCREEN} component={LoginScreen} />
+  </LoginStack.Navigator>
 );
 
 const HomeStackScreens = () => (
@@ -185,23 +197,23 @@ const BottomNavScreens = () => (
     <TabStack.Screen
       name={HOME_STACK}
       options={() => ({
-        activeTabBarIcon: 'book-open-fill',
-        inactiveTabBarIcon: 'book-open-line',
+        activeTabBarIcon: 'home-5-fill',
+        inactiveTabBarIcon: 'home-5-line',
       })}
       component={HomeStackScreens}
     />
     <TabStack.Screen
       name={SCAN_STACK}
       options={{
-          isMainAction: true,
+        isMainAction: true,
       }}
       component={ScanStackScreens}
     />
     <TabStack.Screen
       name={SETTINGS_STACK}
       options={{
-        activeTabBarIcon: 'dashboard-2-fill',
-        inactiveTabBarIcon: 'dashboard-2-line',
+        activeTabBarIcon: 'settings-3-fill',
+        inactiveTabBarIcon: 'settings-3-line',
       }}
       component={SettingsStackScreens}
     />
@@ -219,6 +231,7 @@ const RootStackScreens = () => {
   }
   return (
     <RootStack.Navigator mode="modal" screenOptions={{ headerShown: false }}>
+      <RootStack.Screen name={LOGIN_STACK} component={LoginStackScreens} />
       <RootStack.Screen name={BOTTOM_NAV_STACK} component={BottomNavScreens} />
     </RootStack.Navigator>
   );

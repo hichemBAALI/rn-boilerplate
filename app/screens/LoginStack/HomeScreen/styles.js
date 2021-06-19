@@ -7,16 +7,13 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  toggleItemStyle: {
-    zIndex: -1,
+  imageStyle: {
+    width: 200,
+    height: 200,
+  },
+  forgetPasswordStyle: {
     flex: 1,
-    minWidth: 80,
-    borderRadius: 16,
-    padding: 8,
-    margin: 4,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    borderWidth: 1,
-    alignItems: 'center',
-  }
+    alignItems: 'flex-end',
+    padding: 16,
+  },
 });
