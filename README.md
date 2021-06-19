@@ -12,6 +12,9 @@ This is a react native boilerplate with many useful component such as:
 - Custom <Text/>
 - Custom icons library using RemixIcons v2.5
 
+## Preview
+![prevview (1)](https://user-images.githubusercontent.com/58466201/122646126-950b5b80-d115-11eb-80d0-41aea5ea2048.gif)
+
 ## How it works
 - First run `yarn install && cd ios && pod install && cd ..`
 - Or `npm install && cd ios && pod install && cd ..`
@@ -32,11 +35,5 @@ rn-boilerplate came with 2 build flavors for both platform
 ##### Production
 - Debug `yarn ios-production`
 - release `yarn ios-production-release`
-
-## Preview
-![prevview (1)](https://user-images.githubusercontent.com/58466201/122646126-950b5b80-d115-11eb-80d0-41aea5ea2048.gif)
 ##
 Please open an issue if something doesn't work or is not clear enough.
-
-
-
