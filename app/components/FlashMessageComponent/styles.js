@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -13,5 +12,4 @@ export default StyleSheet.create({
     marginEnd: 8,
     alignSelf: 'center',
   },
-
 });

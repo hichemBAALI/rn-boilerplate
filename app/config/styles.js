@@ -1,9 +1,7 @@
-import {
-  StyleSheet, Platform, Dimensions, PixelRatio,
-} from 'react-native';
-import { currentLocal } from '../utils/localization/localization';
+import {StyleSheet, Platform, Dimensions, PixelRatio} from 'react-native';
+import {currentLocal} from '../utils/localization/localization';
 import colors from './colors';
-import { ANDROID } from './constants';
+import {ANDROID} from './constants';
 
 const x = Dimensions.get('window').width;
 const y = Dimensions.get('window').height;
@@ -26,13 +24,13 @@ function em(value) {
 
 function create(styles: Object): {[name: string]: number} {
   const platformStyles = {};
-  Object.keys(styles).forEach((name) => {
-    let { ios, android, ...style } = { ...styles[name] };
+  Object.keys(styles).forEach(name => {
+    let {ios, android, ...style} = {...styles[name]};
     if (ios && Platform.OS === 'ios') {
-      style = { ...style, ...ios };
+      style = {...style, ...ios};
     }
     if (android && Platform.OS === 'android') {
-      style = { ...style, ...android };
+      style = {...style, ...android};
     }
     platformStyles[name] = style;
   });
@@ -61,7 +59,7 @@ const QStyles = StyleSheet.create({
   },
 });
 
-export default ({
+export default {
   // GENERAL
   DEVICE_WIDTH: x,
   DEVICE_HEIGHT: y,
@@ -124,6 +122,5 @@ export default ({
     flex: 1,
     justifyContent: 'flex-end',
   },
-
-});
-export { QStyles, create };
+};
+export {QStyles, create};

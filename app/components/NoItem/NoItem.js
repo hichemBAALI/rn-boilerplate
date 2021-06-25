@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import { locale } from '../../utils/localization/localization';
+import React, {Component} from 'react';
+import {View} from 'react-native';
+import {locale} from '../../utils/localization/localization';
 import styles from './styles';
 import CustomText from '../CustomText';
-import { FONT_WEIGHT } from '../../config/constants';
+import {FONT_WEIGHT} from '../../config/constants';
 import colors from '../../config/colors';
 
 class NoItem extends Component {

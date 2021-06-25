@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  View,
-  TouchableOpacity,
-  StyleSheet, I18nManager,
-} from 'react-native';
+import {View, TouchableOpacity, StyleSheet, I18nManager} from 'react-native';
 import PropTypes from 'prop-types';
 import colors from '../../config/colors';
 import RemixIcon from '../../utils/icon/RemixIcons';
@@ -22,14 +18,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const TopBack = (props) => (
-  <TouchableOpacity style={[styles.container, props.containerStyle]} onPress={props.onPress}>
+const TopBack = props => (
+  <TouchableOpacity
+    style={[styles.container, props.containerStyle]}
+    onPress={props.onPress}>
     <View style={styles.iconContainer}>
       <RemixIcon
         name={props.name}
         size={props.size}
         color={props.color}
-        style={{ transform: [{ rotateY: I18nManager.isRTL ? '180deg' : '0deg' }] }}
+        style={{transform: [{rotateY: I18nManager.isRTL ? '180deg' : '0deg'}]}}
       />
     </View>
   </TouchableOpacity>

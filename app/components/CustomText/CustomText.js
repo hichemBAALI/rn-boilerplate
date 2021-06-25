@@ -1,29 +1,21 @@
-import React, { Component } from 'react';
-import { Text, ScrollView } from 'react-native';
+import React, {Component} from 'react';
+import {Text, ScrollView} from 'react-native';
 import PropTypes from 'prop-types';
-import { FONT_WEIGHT } from '../../config/constants';
+import {FONT_WEIGHT} from '../../config/constants';
 import styles from './styles';
 import colors from '../../config/colors';
-import { fonts } from '../../utils/utils';
+import {fonts} from '../../utils/utils';
 
 class CustomText extends Component {
   constructor() {
     super();
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
-    const {
-      content,
-      style,
-      size,
-      weight,
-      color,
-      textAlign,
-      numberOfLines,
-    } = this.props;
+    const {content, style, size, weight, color, textAlign, numberOfLines} =
+      this.props;
     const fontFamily = () => {
       switch (weight) {
         case FONT_WEIGHT.BOLD:
@@ -50,8 +42,7 @@ class CustomText extends Component {
           },
           style,
         ]}
-        numberOfLines={numberOfLines}
-      >
+        numberOfLines={numberOfLines}>
         {content}
       </Text>
     );

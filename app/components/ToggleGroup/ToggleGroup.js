@@ -1,8 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, {Component, useState} from 'react';
 import PropTypes from 'prop-types';
-import {
-  View, TouchableOpacity, FlatList, Animated,
-} from 'react-native';
+import {View, TouchableOpacity, FlatList, Animated} from 'react-native';
 import styles from './styles';
 import NoItem from '../NoItem';
 
@@ -23,13 +21,19 @@ class ToggleGroup extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.index !== this.props.index) {
-      this.setState({
-        selectedIndex: this.props.index,
-      }, () => {
-        this.props.isScrollable && this.props.animateToIndex
-          ? this.FlateList.scrollToIndex({ animated: true, index: this.state.selectedIndex })
-          : null;
-      });
+      this.setState(
+        {
+          selectedIndex: this.props.index,
+        },
+        () => {
+          this.props.isScrollable && this.props.animateToIndex
+            ? this.FlateList.scrollToIndex({
+                animated: true,
+                index: this.state.selectedIndex,
+              })
+            : null;
+        },
+      );
     }
   }
 
@@ -52,10 +56,10 @@ class ToggleGroup extends Component {
     return (
       <View style={[styles.container, containerStyle]}>
         <FlatList
-          ref={(ref) => (this.FlateList = ref)}
+          ref={ref => (this.FlateList = ref)}
           style={[styles.flatListContainer, innerContainerStyle]}
           key="v"
-          contentContainerStyle={{ flexGrow: 1 }}
+          contentContainerStyle={{flexGrow: 1}}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
           data={values}
@@ -69,30 +73,29 @@ class ToggleGroup extends Component {
           keyExtractor={(item, index) => index.toString()}
           ListEmptyComponent={ListEmptyComponent}
           refreshControl={refreshControl}
-          renderItem={({ item, index }) => (
+          renderItem={({item, index}) => (
             <View style={styles.toggleItemSurface}>
               <TouchableOpacity
-                style={[styles.toggleItemSurface, { width: itemWidth, height: itemHeight }]}
+                style={[
+                  styles.toggleItemSurface,
+                  {width: itemWidth, height: itemHeight},
+                ]}
                 onPress={() => {
-                  this.setState(
-                    {
-                      previousIndex: this.state.selectedIndex,
-                      selectedIndex: index,
-                      item,
-                    },
-                  ),
-                  onItemClick(item, index);
-                }}
-              >
+                  this.setState({
+                    previousIndex: this.state.selectedIndex,
+                    selectedIndex: index,
+                    item,
+                  }),
+                    onItemClick(item, index);
+                }}>
                 {this.state.selectedIndex === index
-                  ? (itemRenderSelected(item, this.state.previousIndex, index))
-                  : (itemRender(item, index))}
+                  ? itemRenderSelected(item, this.state.previousIndex, index)
+                  : itemRender(item, index)}
               </TouchableOpacity>
             </View>
           )}
         />
       </View>
-
     );
   }
 }

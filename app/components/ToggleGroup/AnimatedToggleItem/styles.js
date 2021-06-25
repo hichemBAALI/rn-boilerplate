@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import colors from '../../../config/colors';
 
 export default StyleSheet.create({
@@ -10,7 +10,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     margin: 8,
     padding: 8,
-
   },
   toggleItemSurface: {
     flex: 1,

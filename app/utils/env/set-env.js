@@ -9,7 +9,7 @@ const isOSWin = function isOSWin() {
 
 const getArgs = function getArgs() {
   const args = process.argv.slice(2);
-  const env = args.filter((item) => ['--staging', '--production'].includes(item));
+  const env = args.filter(item => ['--staging', '--production'].includes(item));
   const separator = ['--'];
   return env.length ? env[env.length - 1].split('--')[1] : null;
 };

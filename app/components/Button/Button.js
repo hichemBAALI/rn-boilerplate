@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import React, {Component} from 'react';
+import {TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import {
@@ -7,7 +7,10 @@ import {
   IS_VALIDATE_FILL_TYPE,
   IS_CANCEL_FILL_TYPE,
   IS_DISABLED_TYPE,
-  IS_SKIP_TYPE, IS_VALIDATE_LINE_TYPE, IS_CANCEL_LINE_TYPE, TEXT_ALIGN,
+  IS_SKIP_TYPE,
+  IS_VALIDATE_LINE_TYPE,
+  IS_CANCEL_LINE_TYPE,
+  TEXT_ALIGN,
 } from '../../config/constants';
 import colors from '../../config/colors';
 import CustomText from '../CustomText';
@@ -62,23 +65,15 @@ class Button extends Component {
       <TouchableOpacity
         onPress={onPress}
         disabled={type === IS_DISABLED_TYPE}
-        style={[styles.buttonContainer,
-          this.typeStyle,
-          { width },
-          style]}
-      >
-        {
-          holderIconName
-            ? (
-              <RemixIcon
-                name={holderIconName}
-                color={holderIconColor}
-                size={24}
-                style={{ alignItems: 'center' }}
-              />
-            )
-            : (null)
-        }
+        style={[styles.buttonContainer, this.typeStyle, {width}, style]}>
+        {holderIconName ? (
+          <RemixIcon
+            name={holderIconName}
+            color={holderIconColor}
+            size={24}
+            style={{alignItems: 'center'}}
+          />
+        ) : null}
         <CustomText
           style={[styles.buttonText, textStyle]}
           size={textSize}

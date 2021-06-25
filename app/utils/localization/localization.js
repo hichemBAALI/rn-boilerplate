@@ -5,21 +5,19 @@ import fr from './fr.json';
 import ar from './ar.json';
 
 I18n.fallbacks = true;
-I18n.translations = { en, fr, ar };
+I18n.translations = {en, fr, ar};
 
-const locale = (word, value) => (value ? I18n.t(word, { value }) : I18n.t(word));
+const locale = (word, value) => (value ? I18n.t(word, {value}) : I18n.t(word));
 
 const currentLocal = () => {
-  const localCode = I18n.currentLocale()
-    .split('-')
-    .shift();
+  const localCode = I18n.currentLocale().split('-').shift();
   if (localCode in I18n.translations) {
     return localCode;
   }
   return 'en';
 };
 
-const updateCurrentLocale = (lang) => {
+const updateCurrentLocale = lang => {
   if (!lang) {
     return;
   }
@@ -67,6 +65,4 @@ numeral.register('locale', 'ar', {
 
 numeral.locale('fr');
 
-export {
-  locale, currentLocal, updateCurrentLocale,
-};
+export {locale, currentLocal, updateCurrentLocale};

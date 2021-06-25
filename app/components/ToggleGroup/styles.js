@@ -1,9 +1,7 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-
-  flatListContainer: {
-  },
+  flatListContainer: {},
   container: {
     flexDirection: 'row',
     height: 50,
@@ -15,6 +13,5 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     zIndex: 1000,
-
   },
 });

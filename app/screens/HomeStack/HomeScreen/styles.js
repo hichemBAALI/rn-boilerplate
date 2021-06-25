@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import Styles from '../../../config/styles';
 
 export default StyleSheet.create({
@@ -18,5 +18,5 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     alignItems: 'center',
-  }
+  },
 });

@@ -1,8 +1,8 @@
-import { Dimensions, StyleSheet } from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import colors from '../../config/colors';
 import Style from '../../config/styles';
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 export default StyleSheet.create({
   containerStyle: {
     flexDirection: 'row',
@@ -21,8 +21,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.mainBackground,
   },
-  slideStyle: {
-  },
+  slideStyle: {},
   title: {
     fontFamily: Style.FONT_BOLD,
     fontSize: 12,

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { View, TextInput } from 'react-native';
+import {View, TextInput} from 'react-native';
 import colors from '../../config/colors';
 import styles from './styles';
 import {
@@ -51,7 +51,7 @@ class CustomTextInput extends Component {
       default:
         return styles.containerStyle;
     }
-  }
+  };
 
   render() {
     const {
@@ -73,26 +73,20 @@ class CustomTextInput extends Component {
       style,
     } = this.props;
     return (
-      <View
-        style={[
-          styles.container,
-          this.advencedStyle(),
-          containerStyle,
-        ]}
-      >
+      <View style={[styles.container, this.advencedStyle(), containerStyle]}>
         <TextInput
-          ref={(r) => this.ref = r}
+          ref={r => (this.ref = r)}
           style={[styles.defaultStyle, style]}
           keyboardType={keyboardType}
           underlineColorAndroid="transparent"
           value={value}
           onFocus={() => {
-            this.setState({ status: IS_FOCUS }, () => {
+            this.setState({status: IS_FOCUS}, () => {
               onFocus();
             });
           }}
           onBlur={() => {
-            this.setState({ status: IS_BLUR }, () => {
+            this.setState({status: IS_BLUR}, () => {
               onBlur();
             });
           }}
@@ -105,29 +99,33 @@ class CustomTextInput extends Component {
           secureTextEntry={secureTextEntry}
           editable={isEditable || status !== IS_GRAYED_OUT}
         />
-        {// action component for example
+        {
+          // action component for example
           sideComponent
         }
-        {
-          holderIconName
-            ? (
-              <View
-                style={[styles.sideIcon, {
-                  backgroundColor: this.state.status === IS_FOCUS
+        {holderIconName ? (
+          <View
+            style={[
+              styles.sideIcon,
+              {
+                backgroundColor:
+                  this.state.status === IS_FOCUS
                     ? colors.blue_400_alpha
                     : colors.grey_200,
-                }]}
-              >
-                <RemixIcon
-                  name={holderIconName}
-                  color={this.state.status === IS_FOCUS ? colors.blue_400 : colors.grey_300}
-                  size={16}
-                  style={{ alignItems: 'center' }}
-                />
-              </View>
-            )
-            : (null)
-        }
+              },
+            ]}>
+            <RemixIcon
+              name={holderIconName}
+              color={
+                this.state.status === IS_FOCUS
+                  ? colors.blue_400
+                  : colors.grey_300
+              }
+              size={16}
+              style={{alignItems: 'center'}}
+            />
+          </View>
+        ) : null}
       </View>
     );
   }

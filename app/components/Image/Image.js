@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { createImageProgress } from 'react-native-image-progress';
+import React, {Component} from 'react';
+import {createImageProgress} from 'react-native-image-progress';
 import FastImage from 'react-native-fast-image';
 import colors from '../../config/colors';
 
@@ -12,12 +12,10 @@ class CachedImage extends Component {
   render() {
     return (
       <Image
-        source={
-          {
-            ...this.props.source,
-            cache: FastImage.cacheControl.immutable,
-          }
-        }
+        source={{
+          ...this.props.source,
+          cache: FastImage.cacheControl.immutable,
+        }}
         resizeMode={this.props.resizeMode}
         style={this.props.style}
         indicator={this.props.indicator}

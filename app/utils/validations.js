@@ -14,10 +14,8 @@ const formatPhoneNumber = (phone, countryPhoneCode = '213') => {
   }
   return phone;
 };
-const isValidPin = (pin) => (pin && pinRegex.test(pin));
-const isValidEmail = (email) => email ? email.match(emailRegex) : false;
-const isValidName = (name) => name ? fullNameRegex.test(name) : false;
+const isValidPin = pin => pin && pinRegex.test(pin);
+const isValidEmail = email => (email ? email.match(emailRegex) : false);
+const isValidName = name => (name ? fullNameRegex.test(name) : false);
 
-export {
-  formatPhoneNumber, isValidPin, isValidEmail, isValidName,
-};
+export {formatPhoneNumber, isValidPin, isValidEmail, isValidName};

@@ -1,6 +1,6 @@
 import colors from '../config/colors';
 import styles from '../config/styles';
-import { isIphoneXFamilly } from '../utils/dimensions';
+import {isIphoneXFamilly} from '../utils/dimensions';
 
 export default {
   onBoardingContainer: {

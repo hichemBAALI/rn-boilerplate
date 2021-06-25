@@ -1,4 +1,4 @@
-import { locale } from '../utils/localization/localization';
+import {locale} from '../utils/localization/localization';
 import images from './images';
 // OS PLATFROMS
 export const ANDROID = 'android';
@@ -71,11 +71,16 @@ export const STATUS_NOT_FOUND = 404;
 export const STATUS_SERVER_ERROR = 500;
 
 export const FONT_WEIGHT = {
-  BOLD: 'bold', MEDIUM: 'medium', REGULAR: 'regular', LIGHT: 'light',
+  BOLD: 'bold',
+  MEDIUM: 'medium',
+  REGULAR: 'regular',
+  LIGHT: 'light',
 };
 
 export const TEXT_ALIGN = {
-  CENTER: 'center', LEFT: 'left', RIGHT: 'right',
+  CENTER: 'center',
+  LEFT: 'left',
+  RIGHT: 'right',
 };
 
 export const THUMBNAIL_IMAGE = images.SPLASH_LOGO;

@@ -28,6 +28,7 @@
     "ios-release": "npm run set-env-production && yarn ios --configuration Release",
     "uninstall-staging-release": "adb shell pm uninstall com.hichem.boilerplate.staging",
     "uninstall-production-release": "adb shell pm uninstall com.hichem.boilerplate",
+    "format": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
     "postinstall": "npx jetify"
   },
   "dependencies": {
@@ -102,14 +103,20 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^24.9.0",
     "babel-plugin-module-resolver": "^4.0.0",
-    "eslint": "^7.22.0",
-    "eslint-config-airbnb": "18.0.1",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-flow": "1.0.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "6.1.0",
-    "eslint-plugin-react": "7.16.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^6.0.0",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
+    "prettier": "^2.3.1",
+    "prettier-eslint-cli": "^5.0.1",
     "react-native-rename": "^2.4.1",
     "react-test-renderer": "16.13.1"
   },
@@ -123,5 +130,11 @@
     "assets": [
       "./assets/fonts/"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run format",
+      "...": "..."
+    }
   }
 }

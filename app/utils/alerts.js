@@ -1,13 +1,14 @@
-import { Alert } from 'react-native';
-import { showMessage } from 'react-native-flash-message';
+import {Alert} from 'react-native';
+import {showMessage} from 'react-native-flash-message';
 import React from 'react';
-import { currentLocal, locale } from './localization/localization';
+import {currentLocal, locale} from './localization/localization';
 import {
   CONNEXION_TIME_OUT_MESSAGE,
   IS_ERROR_MESSAGE,
   IS_INFO_MESSAGE,
   IS_SUCCESS_MESSAGE,
-  IS_WARNING_MESSAGE, UNEXPECTED_ERROR,
+  IS_WARNING_MESSAGE,
+  UNEXPECTED_ERROR,
 } from '../config/constants';
 import colors from '../config/colors';
 import FlashMessageComponent from '../components/FlashMessageComponent';
@@ -59,12 +60,7 @@ const showFlashMessage = (message, type, duration = 3000, otherConfig) => {
 };
 
 const showResolveFlashMessage = (response, duration = 3000) => {
-  showFlashMessage(
-    locale('success'),
-    response,
-    duration,
-    IS_SUCCESS_MESSAGE,
-  );
+  showFlashMessage(locale('success'), response, duration, IS_SUCCESS_MESSAGE);
 };
 
 const showRejectFlashMessage = (error, duration = 3000) => {
@@ -77,8 +73,4 @@ const showRejectFlashMessage = (error, duration = 3000) => {
     IS_ERROR_MESSAGE,
   );
 };
-export {
-  showResolveFlashMessage,
-  showRejectFlashMessage,
-  showFlashMessage,
-};
+export {showResolveFlashMessage, showRejectFlashMessage, showFlashMessage};

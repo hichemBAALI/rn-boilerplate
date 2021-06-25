@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import colors from '../../config/colors';
 import Style from '../../shared/onBoardingStyle';
 

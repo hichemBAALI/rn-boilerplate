@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import {
-  Animated, Easing, Text, TouchableOpacity, View,
-} from 'react-native';
+import React, {Component} from 'react';
+import {Animated, Easing, Text, TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
@@ -13,12 +11,12 @@ class AnimatedToggleItem extends Component {
     this.width = 100;
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   componentDidUpdate(prevProps, prevState) {
     this.props.isSelected
-      ? this.handleAnimation() : this.animatedValue = new Animated.Value(0);
+      ? this.handleAnimation()
+      : (this.animatedValue = new Animated.Value(0));
   }
 
   handleAnimation = () => {
@@ -27,7 +25,7 @@ class AnimatedToggleItem extends Component {
       duration: 300,
       easing: Easing.elastic(1.7),
     }).start();
-  }
+  };
 
   render() {
     const {
@@ -37,23 +35,20 @@ class AnimatedToggleItem extends Component {
       isSelected,
       previousIndex,
       selectedIndex,
-
     } = this.props;
-    return (
-      isSelected ? (
-        <View
-          style={[styles.container, containerStyle]}
-        >
-          {innerComponent}
-          <Animated.View style={[styles.toggleItemSurface,
+    return isSelected ? (
+      <View style={[styles.container, containerStyle]}>
+        {innerComponent}
+        <Animated.View
+          style={[
+            styles.toggleItemSurface,
             {
               transform: [
                 {
                   translateX: this.animatedValue.interpolate({
                     inputRange: [0, 1],
-                    outputRange: previousIndex > selectedIndex
-                      ? [40, 0]
-                      : [-40, 0], // 0 : 150, 0.5 : 75, 1 : 0
+                    outputRange:
+                      previousIndex > selectedIndex ? [40, 0] : [-40, 0], // 0 : 150, 0.5 : 75, 1 : 0
                   }),
                 },
                 {
@@ -64,15 +59,12 @@ class AnimatedToggleItem extends Component {
                 },
               ],
             },
-            selectedItemStyle]}
-          />
-        </View>
-
-      ) : (
-        <View style={[styles.container, containerStyle]}>
-          {innerComponent}
-        </View>
-      )
+            selectedItemStyle,
+          ]}
+        />
+      </View>
+    ) : (
+      <View style={[styles.container, containerStyle]}>{innerComponent}</View>
     );
   }
 }
@@ -82,7 +74,6 @@ AnimatedToggleItem.propTypes = {
   selectedItemStyle: PropTypes.any,
   innerComponent: PropTypes.any,
   isSelected: PropTypes.bool,
-
 };
 
 AnimatedToggleItem.defaultProps = {

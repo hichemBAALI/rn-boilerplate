@@ -1,8 +1,8 @@
-import { Dimensions, StyleSheet } from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import colors from '../../config/colors';
-import { BOTTOM_NAV_ITEMS_NUMBER } from '../../config/constants';
+import {BOTTOM_NAV_ITEMS_NUMBER} from '../../config/constants';
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 export default StyleSheet.create({
   barContainer: {
