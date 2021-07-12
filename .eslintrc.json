@@ -18,9 +18,31 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "arrow-parens": "always"
+    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+    "no-use-before-define": "error",
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "camelcase": "off",
+    "new-cap": "off",
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
+    "no-await-in-loop": "off",
+    "prefer-promise-reject-errors": "off",
+    "object-curly-spacing": ["error", "never"],
+    "radix": "off",
+    "no-restricted-syntax": "off",
+    "import/named": "off",
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": "always",
+        "ObjectPattern": {"multiline": true},
+        "ImportDeclaration": "never",
+        "ExportDeclaration": {"multiline": true, "minProperties": 3}
+      }
+    ],
+    "react/jsx-closing-bracket-location": ["warning", "props-aligned"]
   }
 }
