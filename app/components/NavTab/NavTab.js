@@ -12,9 +12,7 @@ class NavTab extends Component {
   constructor() {
     super();
     this.screenWidth = Dimensions.get('window').width;
-    this.state = {
-      activeSlide: 0,
-    };
+    this.state = {activeSlide: 0};
   }
 
   componentDidMount() {}

@@ -14,9 +14,7 @@ class VersionTag extends Component {
             <CustomText
               style={[
                 styles.diagonalRectangle,
-                {
-                  backgroundColor: this.props.backgroundColor,
-                },
+                {backgroundColor: this.props.backgroundColor},
               ]}
               content={this.props.versionTagText}
               size={12}

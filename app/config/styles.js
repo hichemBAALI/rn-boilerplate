@@ -43,12 +43,8 @@ const QStyles = StyleSheet.create({
     alignSelf: 'flex-end',
     marginBottom: 15,
   },
-  dotDefaultBackground: {
-    backgroundColor: colors.controlColor,
-  },
-  dotFirstBackground: {
-    backgroundColor: colors.primaryColor,
-  },
+  dotDefaultBackground: {backgroundColor: colors.controlColor},
+  dotFirstBackground: {backgroundColor: colors.primaryColor},
   dot: {
     width: 10,
     height: 10,

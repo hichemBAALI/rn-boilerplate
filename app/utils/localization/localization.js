@@ -38,9 +38,7 @@ numeral.register('locale', 'fr', {
   ordinal(number) {
     return number === 1 ? 'er' : 'ème';
   },
-  currency: {
-    symbol: '',
-  },
+  currency: {symbol: ''},
 });
 
 numeral.register('locale', 'ar', {
@@ -58,9 +56,7 @@ numeral.register('locale', 'ar', {
   ordinal(number) {
     return '';
   },
-  currency: {
-    symbol: '',
-  },
+  currency: {symbol: ''},
 });
 
 numeral.locale('fr');

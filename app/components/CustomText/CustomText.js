@@ -14,8 +14,7 @@ class CustomText extends Component {
   componentDidMount() {}
 
   render() {
-    const {content, style, size, weight, color, textAlign, numberOfLines} =
-      this.props;
+    const {content, style, size, weight, color, textAlign, numberOfLines} =      this.props;
     const fontFamily = () => {
       switch (weight) {
         case FONT_WEIGHT.BOLD:

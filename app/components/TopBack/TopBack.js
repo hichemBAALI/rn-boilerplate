@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
 const TopBack = (props) => (
   <TouchableOpacity
     style={[styles.container, props.containerStyle]}
-    onPress={props.onPress}>
+    onPress={props.onPress}
+  >
     <View style={styles.iconContainer}>
       <RemixIcon
         name={props.name}

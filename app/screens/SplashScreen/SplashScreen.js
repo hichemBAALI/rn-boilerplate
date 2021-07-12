@@ -22,8 +22,8 @@ class SplashScreen extends Component {
     const {lang} = this.props.configuration;
     updateCurrentLocale(lang);
     if (
-      (lang === 'ar' && !I18nManager.isRTL) ||
-      (lang !== 'ar' && I18nManager.isRTL)
+      (lang === 'ar' && !I18nManager.isRTL)
+      || (lang !== 'ar' && I18nManager.isRTL)
     ) {
       I18nManager.forceRTL(lang === 'ar');
       I18nManager.allowRTL(lang === 'ar');
@@ -42,8 +42,6 @@ const mapDispatchToProps = (dispatch) => ({
   dispatchSetIsSplashLoading: (isSplashLoading) =>
     dispatch(dispatchSetIsSplashLoading(isSplashLoading)),
 });
-const mapStateToProps = (state) => ({
-  configuration: state.configuration,
-});
+const mapStateToProps = (state) => ({configuration: state.configuration});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SplashScreen);

@@ -4,8 +4,8 @@ import {CHANGE_LANGUAGE, GET_LANGUAGES, IOS} from '../config/constants';
 const getDefaultLocal = () => {
   const local =
     Platform.OS === IOS
-      ? NativeModules.SettingsManager.settings.AppleLocale
-      : NativeModules.I18nManager.localeIdentifier;
+    ? NativeModules.SettingsManager.settings.AppleLocale
+    : NativeModules.I18nManager.localeIdentifier;
 
   const localCode = local.substring(0, 2);
   return localCode;

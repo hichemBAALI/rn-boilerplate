@@ -76,11 +76,8 @@ class LoginScreen extends Component {
           placeholder={locale('Password')}
           sideComponent={
             <TouchableOpacity
-              onPress={() =>
-                this.setState({
-                  secureTextEntry: !this.state.secureTextEntry,
-                })
-              }>
+              onPress={() => this.setState({secureTextEntry: !this.state.secureTextEntry})}
+            >
               <RemixIcon
                 name={this.state.secureTextEntry ? 'eye-line' : 'eye-off-line'}
                 size={18}

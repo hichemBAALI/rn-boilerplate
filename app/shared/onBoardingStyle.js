@@ -35,13 +35,7 @@ export default {
     color: colors.infoText,
     marginTop: 32,
   },
-  alignCenter: {
-    alignItems: 'center',
-  },
-  marginTop20: {
-    marginTop: 20,
-  },
-  textCenter: {
-    textAlign: 'center',
-  },
+  alignCenter: {alignItems: 'center'},
+  marginTop20: {marginTop: 20},
+  textCenter: {textAlign: 'center'},
 };

@@ -7,33 +7,24 @@ import NoItem from '../NoItem';
 class ToggleGroup extends Component {
   constructor() {
     super();
-    this.state = {
-      item: {},
-    };
+    this.state = {item: {}};
   }
 
   componentDidMount() {
     this.translateValue = new Animated.Value(0);
-    this.setState({
-      selectedIndex: this.props.index,
-    });
+    this.setState({selectedIndex: this.props.index});
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.index !== this.props.index) {
-      this.setState(
-        {
-          selectedIndex: this.props.index,
-        },
-        () => {
-          this.props.isScrollable && this.props.animateToIndex
-            ? this.FlateList.scrollToIndex({
-                animated: true,
-                index: this.state.selectedIndex,
-              })
-            : null;
-        },
-      );
+      this.setState({selectedIndex: this.props.index}, () => {
+        this.props.isScrollable && this.props.animateToIndex
+          ? this.FlateList.scrollToIndex({
+              animated: true,
+              index: this.state.selectedIndex,
+            })
+          : null;
+      });
     }
   }
 

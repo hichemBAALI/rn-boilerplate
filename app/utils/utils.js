@@ -87,9 +87,7 @@ const exitApp = () => {
         onPress: () => BackHandler.exitApp(),
       },
     ],
-    {
-      cancelable: false,
-    },
+    {cancelable: false},
   );
   return true;
 };

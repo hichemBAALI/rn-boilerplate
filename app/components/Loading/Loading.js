@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import {View, ActivityIndicator} from 'react-native';
 import styles from './styles';
 
-const Loading = (props) =>
-  props.isShown ? (
+const Loading = (props) => (props.isShown ? (
     <View style={[styles.container, props.style]}>
       <ActivityIndicator size={props.size} color={props.color} />
     </View>

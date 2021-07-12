@@ -15,24 +15,18 @@ import RemixIcon from '../../utils/icon/RemixIcons';
 class CustomTextInput extends Component {
   constructor(props, ref) {
     super();
-    this.state = {
-      status: IS_BLUR,
-    };
+    this.state = {status: IS_BLUR};
   }
 
   componentDidMount(): void {
-    this.setState({
-      status: this.props.status,
-    });
+    this.setState({status: this.props.status});
   }
 
   getInnerRef = () => this.ref;
 
   componentDidUpdate(prevProps) {
     if (prevProps.status !== this.props.status) {
-      this.setState({
-        status: this.props.status,
-      });
+      this.setState({status: this.props.status});
     }
   }
 

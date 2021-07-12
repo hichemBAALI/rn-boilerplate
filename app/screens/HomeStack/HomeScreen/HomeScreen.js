@@ -82,12 +82,18 @@ class HomeScreen extends Component {
           index={index}
           values={toggleValues}
           onItemClick={(item, index) => {
-            this.setState({toggleSelectedItem: item, index}, () => {
-              showFlashMessage(
-                `${toggleSelectedItem?.name} was clicked`,
-                IS_SUCCESS_MESSAGE,
-              );
-            });
+            this.setState(
+              {
+                toggleSelectedItem: item,
+                index,
+              },
+              () => {
+                showFlashMessage(
+                  `${toggleSelectedItem?.name} was clicked`,
+                  IS_SUCCESS_MESSAGE,
+                );
+              },
+            );
           }}
           itemRender={(item) => this.itemRender(item)}
           itemRenderSelected={(item) => this.itemRender(item, true)}

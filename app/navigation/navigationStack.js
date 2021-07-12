@@ -42,28 +42,19 @@ const headerBack = () => (
 const headerRender = (props) => <Header {...props} />;
 
 const SplashStackScreens = () => (
-  <SplashStack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
+  <SplashStack.Navigator screenOptions={{headerShown: false}}>
     <SplashStack.Screen name={SPLASH_SCREEN} component={SplashScreen} />
   </SplashStack.Navigator>
 );
 
 const LoginStackScreens = () => (
-  <LoginStack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
+  <LoginStack.Navigator screenOptions={{headerShown: false}}>
     <LoginStack.Screen name={LOGIN_SCREEN} component={LoginScreen} />
   </LoginStack.Navigator>
 );
 
 const HomeStackScreens = () => (
-  <HomeStack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
+  <HomeStack.Navigator screenOptions={{headerShown: false}}>
     <HomeStack.Screen
       name={HOME_SCREEN}
       component={HomeScreen}
@@ -96,10 +87,7 @@ const HomeStackScreens = () => (
 );
 
 const ScanStackScreens = () => (
-  <ScanStack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
+  <ScanStack.Navigator screenOptions={{headerShown: false}}>
     <ScanStack.Screen
       name={SCAN_SCREEN}
       component={ScanScreen}
@@ -132,10 +120,7 @@ const ScanStackScreens = () => (
 );
 
 const SettingsStackScreens = () => (
-  <SettingsStack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
+  <SettingsStack.Navigator screenOptions={{headerShown: false}}>
     <SettingsStack.Screen
       name={SETTINGS_SCREEN}
       component={SettingsScreen}
@@ -190,9 +175,7 @@ const BottomNavScreens = () => (
     />
     <TabStack.Screen
       name={SCAN_STACK}
-      options={{
-        isMainAction: true,
-      }}
+      options={{isMainAction: true}}
       component={ScanStackScreens}
     />
     <TabStack.Screen
