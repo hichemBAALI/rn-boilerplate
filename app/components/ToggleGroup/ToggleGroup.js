@@ -56,7 +56,7 @@ class ToggleGroup extends Component {
     return (
       <View style={[styles.container, containerStyle]}>
         <FlatList
-          ref={ref => (this.FlateList = ref)}
+          ref={(ref) => (this.FlateList = ref)}
           style={[styles.flatListContainer, innerContainerStyle]}
           key="v"
           contentContainerStyle={{flexGrow: 1}}

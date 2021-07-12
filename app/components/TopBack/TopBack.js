@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const TopBack = props => (
+const TopBack = (props) => (
   <TouchableOpacity
     style={[styles.container, props.containerStyle]}
     onPress={props.onPress}>

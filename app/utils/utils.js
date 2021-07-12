@@ -46,7 +46,7 @@ const fonts = () => ({
       : 'ProductSans-Bold',
 });
 
-const countryFromPhoneNumber = phoneNumber => {
+const countryFromPhoneNumber = (phoneNumber) => {
   if (phoneNumber.startsWith('+213')) return 'Algeria';
   if (phoneNumber.startsWith('+33')) return 'France';
   if (phoneNumber.startsWith('+216')) return 'Tunisia';
@@ -62,8 +62,8 @@ const crashlyticsRecordError = (error, userId) => {
   crashlytics().recordError(error);
 };
 
-const openUrl = url => {
-  Linking.canOpenURL(url).then(supported => {
+const openUrl = (url) => {
+  Linking.canOpenURL(url).then((supported) => {
     if (supported) {
       Linking.openURL(url);
     } else {
@@ -99,13 +99,13 @@ const exitAppWithoutConfirmation = () => {
   return true;
 };
 
-const Log = message => {
+const Log = (message) => {
   if (__DEV__) {
     console.log(message);
   }
 };
 
-const parsBoolean = value => {
+const parsBoolean = (value) => {
   if (value === false || value === undefined) return false;
   return true;
 };

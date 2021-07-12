@@ -24,7 +24,7 @@ function em(value) {
 
 function create(styles: Object): {[name: string]: number} {
   const platformStyles = {};
-  Object.keys(styles).forEach(name => {
+  Object.keys(styles).forEach((name) => {
     let {ios, android, ...style} = {...styles[name]};
     if (ios && Platform.OS === 'ios') {
       style = {...style, ...ios};

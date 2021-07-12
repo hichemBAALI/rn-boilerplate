@@ -75,7 +75,7 @@ class CustomTextInput extends Component {
     return (
       <View style={[styles.container, this.advencedStyle(), containerStyle]}>
         <TextInput
-          ref={r => (this.ref = r)}
+          ref={(r) => (this.ref = r)}
           style={[styles.defaultStyle, style]}
           keyboardType={keyboardType}
           underlineColorAndroid="transparent"

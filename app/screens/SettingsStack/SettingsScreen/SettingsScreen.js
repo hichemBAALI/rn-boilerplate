@@ -41,8 +41,8 @@ class SettingsScreen extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch) => ({});
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsScreen);

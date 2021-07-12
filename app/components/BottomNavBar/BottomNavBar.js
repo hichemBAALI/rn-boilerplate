@@ -15,7 +15,7 @@ import {BOTTOM_NAV_ITEMS_NUMBER} from '../../config/constants';
 import colors from '../../config/colors';
 import RemixIcon from '../../utils/icon/RemixIcons';
 
-const BottomNavBar = props => {
+const BottomNavBar = (props) => {
   Log(props);
   const {navigation, descriptors, state, isArabic} = props;
 
@@ -49,7 +49,7 @@ const BottomNavBar = props => {
     }
   };
 
-  const onLongPress = route => {
+  const onLongPress = (route) => {
     navigation.emit({
       type: 'tabLongPress',
       target: route.key,

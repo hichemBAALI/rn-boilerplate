@@ -39,7 +39,7 @@ const headerBack = () => (
   <RemixIcon name="arrow-left-line" color={colors.black} size={30} />
 );
 
-const headerRender = props => <Header {...props} />;
+const headerRender = (props) => <Header {...props} />;
 
 const SplashStackScreens = () => (
   <SplashStack.Navigator
@@ -69,7 +69,7 @@ const HomeStackScreens = () => (
       component={HomeScreen}
       options={{
         headerShown: true,
-        headerTitle: props => headerRender(props),
+        headerTitle: (props) => headerRender(props),
         headerStyle: {
           elevation: 4,
           borderBottomWidth: 1,
@@ -83,7 +83,7 @@ const HomeStackScreens = () => (
       component={HomeScreen}
       options={{
         headerShown: true,
-        headerTitle: props => headerRender(props),
+        headerTitle: (props) => headerRender(props),
         headerStyle: {
           elevation: 4,
           borderBottomWidth: 1,
@@ -105,7 +105,7 @@ const ScanStackScreens = () => (
       component={ScanScreen}
       options={{
         headerShown: true,
-        headerTitle: props => headerRender(props),
+        headerTitle: (props) => headerRender(props),
         headerStyle: {
           elevation: 4,
           borderBottomWidth: 1,
@@ -119,7 +119,7 @@ const ScanStackScreens = () => (
       component={ScanScreen}
       options={{
         headerShown: true,
-        headerTitle: props => headerRender(props),
+        headerTitle: (props) => headerRender(props),
         headerStyle: {
           elevation: 4,
           borderBottomWidth: 1,
@@ -141,7 +141,7 @@ const SettingsStackScreens = () => (
       component={SettingsScreen}
       options={{
         headerShown: true,
-        headerTitle: props => headerRender(props),
+        headerTitle: (props) => headerRender(props),
         headerStyle: {
           elevation: 4,
           borderBottomWidth: 1,
@@ -155,7 +155,7 @@ const SettingsStackScreens = () => (
       component={SettingsScreen}
       options={{
         headerShown: true,
-        headerTitle: props => headerRender(props),
+        headerTitle: (props) => headerRender(props),
         headerStyle: {
           elevation: 4,
           borderBottomWidth: 1,
@@ -169,7 +169,7 @@ const SettingsStackScreens = () => (
 
 const BottomNavScreens = () => (
   <TabStack.Navigator
-    tabBar={props => (
+    tabBar={(props) => (
       <BottomNavBar {...props} isLabelShown={false} isArabic={false} />
     )}
     tabBarOptions={{
@@ -208,7 +208,7 @@ const BottomNavScreens = () => (
 
 const RootStackScreens = () => {
   const isSplashLoading = useSelector(
-    state => state.connection.isSplashLoading,
+    (state) => state.connection.isSplashLoading,
   );
   if (isSplashLoading) {
     return (

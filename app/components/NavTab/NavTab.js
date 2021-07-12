@@ -52,13 +52,13 @@ class NavTab extends Component {
     return this.props.isShown ? (
       <View style={styles.containerStyle}>
         <Carousel
-          ref={c => {
+          ref={(c) => {
             this._carousel = c;
           }}
           layout="default"
           useScrollView={false}
           data={this.props.data}
-          renderItem={item => this.carouselItem(this.props, item)}
+          renderItem={(item) => this.carouselItem(this.props, item)}
           sliderWidth={this.screenWidth}
           itemWidth={100}
           firstItem={this.state.firstItem}
@@ -69,9 +69,9 @@ class NavTab extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch) => ({});
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
 NavTab.Prototype = {
   data: PropsType.array,

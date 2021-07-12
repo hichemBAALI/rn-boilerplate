@@ -38,11 +38,11 @@ class SplashScreen extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  dispatchSetIsSplashLoading: isSplashLoading =>
+const mapDispatchToProps = (dispatch) => ({
+  dispatchSetIsSplashLoading: (isSplashLoading) =>
     dispatch(dispatchSetIsSplashLoading(isSplashLoading)),
 });
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   configuration: state.configuration,
 });
 

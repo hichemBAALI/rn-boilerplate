@@ -27,7 +27,7 @@ const App = () => {
       </PersistGate>
       <FlashMessage
         position="bottom"
-        renderCustomContent={options => (
+        renderCustomContent={(options) => (
           <FlashMessageComponent
             iconName={options.icon}
             message={options.customMessage}

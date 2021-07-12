@@ -89,8 +89,8 @@ class HomeScreen extends Component {
               );
             });
           }}
-          itemRender={item => this.itemRender(item)}
-          itemRenderSelected={item => this.itemRender(item, true)}
+          itemRender={(item) => this.itemRender(item)}
+          itemRenderSelected={(item) => this.itemRender(item, true)}
           horizontal
           isScrollable
           itemWidth={null}
@@ -105,8 +105,8 @@ class HomeScreen extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch) => ({});
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

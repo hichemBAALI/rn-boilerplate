@@ -49,7 +49,7 @@ class LoginScreen extends Component {
         />
         <Image source={images.SPLASH_LOGO} style={styles.imageStyle} />
         <CustomTextInput
-          onChangeText={text => Log(text)}
+          onChangeText={(text) => Log(text)}
           holderIconName="user-3-line"
           status={this.state.usernameStatus}
           value={this.state.username}
@@ -62,7 +62,7 @@ class LoginScreen extends Component {
           placeholder={locale('Username')}
         />
         <CustomTextInput
-          onChangeText={text => Log(text)}
+          onChangeText={(text) => Log(text)}
           holderIconName="lock-2-line"
           status={this.state.passwordStatus}
           value={this.state.password}
@@ -112,8 +112,8 @@ class LoginScreen extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch) => ({});
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

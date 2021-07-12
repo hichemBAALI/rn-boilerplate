@@ -17,7 +17,7 @@ const currentLocal = () => {
   return 'en';
 };
 
-const updateCurrentLocale = lang => {
+const updateCurrentLocale = (lang) => {
   if (!lang) {
     return;
   }

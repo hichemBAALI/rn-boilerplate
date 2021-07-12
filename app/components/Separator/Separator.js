@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import colors from '../../config/colors';
 import styles from './styles';
 
-const Separator = props => (
+const Separator = (props) => (
   <View
     style={[
       styles.SeparatorStyle,

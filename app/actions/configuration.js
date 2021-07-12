@@ -9,9 +9,9 @@ import {API_LANGUAGES} from '../utils/api';
 import {showRejectFlashMessage} from '../utils/alerts';
 import {crashlyticsRecordError, Log} from '../utils/utils';
 
-const dispatchChangeLanguage = lang =>
+const dispatchChangeLanguage = (lang) =>
   function (dispatch) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       dispatch({
         type: CHANGE_LANGUAGE,
         lang,
@@ -20,7 +20,7 @@ const dispatchChangeLanguage = lang =>
     });
   };
 
-const dispatchLanguages = languages => ({
+const dispatchLanguages = (languages) => ({
   type: GET_LANGUAGES,
   languages,
 });
@@ -30,7 +30,7 @@ const getLanguages = () =>
     return new Promise((resolve, reject) => {
       axios
         .get(API_LANGUAGES)
-        .then(response => {
+        .then((response) => {
           Log(response.data);
           if (response.status === STATUS_OK) {
             const {data} = response;
@@ -38,7 +38,7 @@ const getLanguages = () =>
             resolve(response);
           }
         })
-        .catch(error => {
+        .catch((error) => {
           Log(error?.response);
           crashlyticsRecordError(error);
           showRejectFlashMessage(error);

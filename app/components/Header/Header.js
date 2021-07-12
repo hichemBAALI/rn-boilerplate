@@ -8,7 +8,7 @@ import colors from '../../config/colors';
 import RemixIcon from '../../utils/icon/RemixIcons';
 import images from '../../config/images';
 
-const Header = props => (
+const Header = (props) => (
   <View style={[styles.container]}>
     <View style={{flexDirection: 'row', alignItems: 'center'}}>
       <CustomText

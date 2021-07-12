@@ -7,7 +7,7 @@ import CustomText from '../CustomText';
 import {FONT_WEIGHT} from '../../config/constants';
 import styles from './styles';
 
-const FlashMessageComponent = props => {
+const FlashMessageComponent = (props) => {
   const {iconName, message, onCancelPressed} = props;
   return (
     <View style={[styles.container]}>
