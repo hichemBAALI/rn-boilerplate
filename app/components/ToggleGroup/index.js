@@ -1,3 +1,3 @@
-import ToggleGroup from './ToggleGroup';
+import ToggleGroup from './ToggleGroup'
 
-export default ToggleGroup;
+export default ToggleGroup

@@ -1,8 +1,8 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import colors from '../../config/colors';
+import { StyleSheet, Dimensions } from 'react-native'
+import colors from '../../config/colors'
 
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
+const screenWidth = Dimensions.get('window').width
+const screenHeight = Dimensions.get('window').height
 export default StyleSheet.create({
   container: {
     width: screenWidth,
@@ -15,4 +15,4 @@ export default StyleSheet.create({
     backgroundColor: colors.blackColor,
     opacity: 0.6,
   },
-});
+})

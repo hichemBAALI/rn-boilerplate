@@ -1,40 +1,45 @@
-import {StyleSheet, Platform, Dimensions, PixelRatio} from 'react-native';
-import {currentLocal} from '../utils/localization/localization';
-import colors from './colors';
-import {ANDROID} from './constants';
+import {
+  StyleSheet,
+  Platform,
+  Dimensions,
+  PixelRatio,
+} from 'react-native'
+import { currentLocal } from '../utils/localization/localization'
+import colors from './colors'
+import { ANDROID } from './constants'
 
-const x = Dimensions.get('window').width;
-const y = Dimensions.get('window').height;
+const x = Dimensions.get('window').width
+const y = Dimensions.get('window').height
 
 // Calculating ratio from iPhone breakpoints
-const ratioX = x < 375 ? (x < 320 ? 0.75 : 0.875) : 1;
-const ratioY = y < 568 ? (y < 480 ? 0.75 : 0.875) : 1;
+const ratioX = x < 375 ? (x < 320 ? 0.75 : 0.875) : 1
+const ratioY = y < 568 ? (y < 480 ? 0.75 : 0.875) : 1
 
 // We set our base font size value
-const baseUnit = 15;
-const widthRatio = PixelRatio.get() > 2 ? 1.5 : 1.3;
+const baseUnit = 15
+const widthRatio = PixelRatio.get() > 2 ? 1.5 : 1.3
 
 // We're simulating EM by changing font size according to Ratio
-const unit = baseUnit * ratioX;
+const unit = baseUnit * ratioX
 
 // We add an em() shortcut function
 function em(value) {
-  return unit * value;
+  return unit * value
 }
 
-function create(styles: Object): {[name: string]: number} {
-  const platformStyles = {};
+function create(styles: Object): { [name: string]: number } {
+  const platformStyles = {}
   Object.keys(styles).forEach((name) => {
-    let {ios, android, ...style} = {...styles[name]};
+    let { ios, android, ...style } = { ...styles[name] }
     if (ios && Platform.OS === 'ios') {
-      style = {...style, ...ios};
+      style = { ...style, ...ios }
     }
     if (android && Platform.OS === 'android') {
-      style = {...style, ...android};
+      style = { ...style, ...android }
     }
-    platformStyles[name] = style;
-  });
-  return StyleSheet.create(platformStyles);
+    platformStyles[name] = style
+  })
+  return StyleSheet.create(platformStyles)
 }
 
 const QStyles = StyleSheet.create({
@@ -43,8 +48,8 @@ const QStyles = StyleSheet.create({
     alignSelf: 'flex-end',
     marginBottom: 15,
   },
-  dotDefaultBackground: {backgroundColor: colors.controlColor},
-  dotFirstBackground: {backgroundColor: colors.primaryColor},
+  dotDefaultBackground: { backgroundColor: colors.controlColor },
+  dotFirstBackground: { backgroundColor: colors.primaryColor },
   dot: {
     width: 10,
     height: 10,
@@ -53,7 +58,7 @@ const QStyles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
   },
-});
+})
 
 export default {
   // GENERAL
@@ -86,7 +91,8 @@ export default {
   ELEVATION: 2,
 
   EDGE_BOTTOM_PADDING: Platform.OS === 'android' ? 550 : 120,
-  ACCEPTANCE_EDGE_BOTTOM_PADDING: Platform.OS === 'android' ? 800 : 120,
+  ACCEPTANCE_EDGE_BOTTOM_PADDING:
+    Platform.OS === 'android' ? 800 : 120,
   EDGE_TOP_PADDING: Platform.OS === 'android' ? 550 : 120,
   ACCEPTANCE_EDGE_TOP_PADDING: Platform.OS === 'android' ? 100 : 120,
   IOS_STATUS_BAR_HEIGHT: 20, // needed only for ios
@@ -95,7 +101,8 @@ export default {
     color: 'white',
     fontSize: 20,
     fontFamily: QStyles.FONT_MEDIUM,
-    paddingTop: Platform.OS === 'android' ? 0 : this.IOS_STATUS_BAR_HEIGHT,
+    paddingTop:
+      Platform.OS === 'android' ? 0 : this.IOS_STATUS_BAR_HEIGHT,
   },
   boxShadow: {
     shadowColor: '#000',
@@ -118,5 +125,5 @@ export default {
     flex: 1,
     justifyContent: 'flex-end',
   },
-};
-export {QStyles, create};
+}
+export { QStyles, create }

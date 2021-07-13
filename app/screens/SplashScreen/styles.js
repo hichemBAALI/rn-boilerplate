@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
-import colors from '../../config/colors';
-import Style from '../../shared/onBoardingStyle';
+import { StyleSheet } from 'react-native'
+import colors from '../../config/colors'
+import Style from '../../shared/onBoardingStyle'
 
 export default StyleSheet.create({
   ...Style,
@@ -31,4 +31,4 @@ export default StyleSheet.create({
     height: 40,
     resizeMode: 'contain',
   },
-});
+})

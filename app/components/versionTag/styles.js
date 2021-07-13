@@ -1,4 +1,4 @@
-import {I18nManager, StyleSheet} from 'react-native';
+import { I18nManager, StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
@@ -16,7 +16,9 @@ export default StyleSheet.create({
     position: 'absolute',
     width: 100,
     height: 15,
-    transform: I18nManager.isRTL ? [{rotate: '-45deg'}] : [{rotate: '45deg'}],
+    transform: I18nManager.isRTL
+      ? [{ rotate: '-45deg' }]
+      : [{ rotate: '45deg' }],
     borderStyle: 'solid',
   },
-});
+})

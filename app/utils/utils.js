@@ -1,7 +1,7 @@
-import {Alert, BackHandler, Linking, Platform} from 'react-native';
-import crashlytics from '@react-native-firebase/crashlytics';
-import {currentLocal, locale} from './localization/localization';
-import {ANDROID} from '../config/constants';
+import { Alert, BackHandler, Linking, Platform } from 'react-native'
+import crashlytics from '@react-native-firebase/crashlytics'
+import { currentLocal, locale } from './localization/localization'
+import { ANDROID } from '../config/constants'
 
 const fonts = () => ({
   FONT_REGULAR:
@@ -44,34 +44,34 @@ const fonts = () => ({
       : Platform.OS === ANDROID
       ? 'ProductSansBold'
       : 'ProductSans-Bold',
-});
+})
 
 const countryFromPhoneNumber = (phoneNumber) => {
-  if (phoneNumber.startsWith('+213')) return 'Algeria';
-  if (phoneNumber.startsWith('+33')) return 'France';
-  if (phoneNumber.startsWith('+216')) return 'Tunisia';
-  if (phoneNumber.startsWith('+212')) return 'Morocco';
-  if (phoneNumber.startsWith('+966')) return 'Saudi Arabia';
-  if (phoneNumber.startsWith('+90')) return 'Turkey';
-  return 'Algeria';
-};
+  if (phoneNumber.startsWith('+213')) return 'Algeria'
+  if (phoneNumber.startsWith('+33')) return 'France'
+  if (phoneNumber.startsWith('+216')) return 'Tunisia'
+  if (phoneNumber.startsWith('+212')) return 'Morocco'
+  if (phoneNumber.startsWith('+966')) return 'Saudi Arabia'
+  if (phoneNumber.startsWith('+90')) return 'Turkey'
+  return 'Algeria'
+}
 
 const crashlyticsRecordError = (error, userId) => {
-  crashlytics().log(error?.response);
-  crashlytics().setUserId(userId);
-  crashlytics().recordError(error);
-};
+  crashlytics().log(error?.response)
+  crashlytics().setUserId(userId)
+  crashlytics().recordError(error)
+}
 
 const openUrl = (url) => {
   Linking.canOpenURL(url).then((supported) => {
     if (supported) {
-      Linking.openURL(url);
+      Linking.openURL(url)
     } else {
       // TODO: we need to implement Error handler
-      return Promise.reject(new Error('Could not open the url'));
+      return Promise.reject(new Error('Could not open the url'))
     }
-  });
-};
+  })
+}
 
 const exitApp = () => {
   Alert.alert(
@@ -87,26 +87,26 @@ const exitApp = () => {
         onPress: () => BackHandler.exitApp(),
       },
     ],
-    {cancelable: false},
-  );
-  return true;
-};
+    { cancelable: false },
+  )
+  return true
+}
 
 const exitAppWithoutConfirmation = () => {
-  BackHandler.exitApp();
-  return true;
-};
+  BackHandler.exitApp()
+  return true
+}
 
 const Log = (message) => {
   if (__DEV__) {
-    console.log(message);
+    console.log(message)
   }
-};
+}
 
 const parsBoolean = (value) => {
-  if (value === false || value === undefined) return false;
-  return true;
-};
+  if (value === false || value === undefined) return false
+  return true
+}
 export {
   fonts,
   countryFromPhoneNumber,
@@ -115,4 +115,4 @@ export {
   exitApp,
   exitAppWithoutConfirmation,
   parsBoolean,
-};
+}

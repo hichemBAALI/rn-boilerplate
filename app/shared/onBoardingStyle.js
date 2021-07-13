@@ -1,6 +1,6 @@
-import colors from '../config/colors';
-import styles from '../config/styles';
-import {isIphoneXFamilly} from '../utils/dimensions';
+import colors from '../config/colors'
+import styles from '../config/styles'
+import { isIphoneXFamilly } from '../utils/dimensions'
 
 export default {
   onBoardingContainer: {
@@ -35,7 +35,7 @@ export default {
     color: colors.infoText,
     marginTop: 32,
   },
-  alignCenter: {alignItems: 'center'},
-  marginTop20: {marginTop: 20},
-  textCenter: {textAlign: 'center'},
-};
+  alignCenter: { alignItems: 'center' },
+  marginTop20: { marginTop: 20 },
+  textCenter: { textAlign: 'center' },
+}

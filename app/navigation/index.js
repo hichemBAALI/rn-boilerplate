@@ -1,3 +1,3 @@
-import navigationStack from './navigationStack';
+import navigationStack from './navigationStack'
 
-export default navigationStack;
+export default navigationStack

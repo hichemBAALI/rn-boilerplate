@@ -1,3 +1,3 @@
-import AnimatedToggleItem from './AnimatedToggleItem';
+import AnimatedToggleItem from './AnimatedToggleItem'
 
-export default AnimatedToggleItem;
+export default AnimatedToggleItem

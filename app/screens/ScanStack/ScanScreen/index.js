@@ -1,3 +1,3 @@
-import ScanScreen from './ScanScreen';
+import ScanScreen from './ScanScreen'
 
-export default ScanScreen;
+export default ScanScreen

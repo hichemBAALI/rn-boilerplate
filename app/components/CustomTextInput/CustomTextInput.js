@@ -1,51 +1,51 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {View, TextInput} from 'react-native';
-import colors from '../../config/colors';
-import styles from './styles';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { View, TextInput } from 'react-native'
+import colors from '../../config/colors'
+import styles from './styles'
 import {
   IS_FOCUS,
   IS_SUCCESS,
   IS_ERROR,
   IS_BLUR,
   IS_GRAYED_OUT,
-} from '../../config/constants';
-import RemixIcon from '../../utils/icon/RemixIcons';
+} from '../../config/constants'
+import RemixIcon from '../../utils/icon/RemixIcons'
 
 class CustomTextInput extends Component {
   constructor(props, ref) {
-    super();
-    this.state = {status: IS_BLUR};
+    super()
+    this.state = { status: IS_BLUR }
   }
 
   componentDidMount(): void {
-    this.setState({status: this.props.status});
+    this.setState({ status: this.props.status })
   }
 
-  getInnerRef = () => this.ref;
+  getInnerRef = () => this.ref
 
   componentDidUpdate(prevProps) {
     if (prevProps.status !== this.props.status) {
-      this.setState({status: this.props.status});
+      this.setState({ status: this.props.status })
     }
   }
 
   advencedStyle = () => {
     switch (this.state.status) {
       case IS_FOCUS:
-        return styles.focusStyle;
+        return styles.focusStyle
       case IS_BLUR:
-        return this.props.containerStyle;
+        return this.props.containerStyle
       case IS_ERROR:
-        return styles.errorStyle;
+        return styles.errorStyle
       case IS_SUCCESS:
-        return styles.successStyle;
+        return styles.successStyle
       case IS_GRAYED_OUT:
-        return styles.gayedOutStyle;
+        return styles.gayedOutStyle
       default:
-        return styles.containerStyle;
+        return styles.containerStyle
     }
-  };
+  }
 
   render() {
     const {
@@ -65,9 +65,15 @@ class CustomTextInput extends Component {
       onBlur,
       maxLength,
       style,
-    } = this.props;
+    } = this.props
     return (
-      <View style={[styles.container, this.advencedStyle(), containerStyle]}>
+      <View
+        style={[
+          styles.container,
+          this.advencedStyle(),
+          containerStyle,
+        ]}
+      >
         <TextInput
           ref={(r) => (this.ref = r)}
           style={[styles.defaultStyle, style]}
@@ -75,14 +81,14 @@ class CustomTextInput extends Component {
           underlineColorAndroid="transparent"
           value={value}
           onFocus={() => {
-            this.setState({status: IS_FOCUS}, () => {
-              onFocus();
-            });
+            this.setState({ status: IS_FOCUS }, () => {
+              onFocus()
+            })
           }}
           onBlur={() => {
-            this.setState({status: IS_BLUR}, () => {
-              onBlur();
-            });
+            this.setState({ status: IS_BLUR }, () => {
+              onBlur()
+            })
           }}
           onChangeText={onChangeText}
           maxLength={maxLength}
@@ -107,7 +113,8 @@ class CustomTextInput extends Component {
                     ? colors.blue_400_alpha
                     : colors.grey_200,
               },
-            ]}>
+            ]}
+          >
             <RemixIcon
               name={holderIconName}
               color={
@@ -116,12 +123,12 @@ class CustomTextInput extends Component {
                   : colors.grey_300
               }
               size={16}
-              style={{alignItems: 'center'}}
+              style={{ alignItems: 'center' }}
             />
           </View>
         ) : null}
       </View>
-    );
+    )
   }
 }
 
@@ -143,7 +150,7 @@ TextInput.propTypes = {
   color: PropTypes.string,
   secureTextEntry: PropTypes.bool,
   maxLength: PropTypes.number,
-};
+}
 TextInput.defaultProps = {
   onChangeText: () => {},
   onSubmitEditing: undefined,
@@ -160,6 +167,6 @@ TextInput.defaultProps = {
   sideComponent: () => {},
   color: colors.blue_900,
   secureTextEntry: false,
-};
+}
 
-export default CustomTextInput;
+export default CustomTextInput

@@ -1,30 +1,35 @@
-import React, {Component, useState} from 'react';
-import PropTypes from 'prop-types';
-import {View, TouchableOpacity, FlatList, Animated} from 'react-native';
-import styles from './styles';
-import NoItem from '../NoItem';
+import React, { Component, useState } from 'react'
+import PropTypes from 'prop-types'
+import {
+  View,
+  TouchableOpacity,
+  FlatList,
+  Animated,
+} from 'react-native'
+import styles from './styles'
+import NoItem from '../NoItem'
 
 class ToggleGroup extends Component {
   constructor() {
-    super();
-    this.state = {item: {}};
+    super()
+    this.state = { item: {} }
   }
 
   componentDidMount() {
-    this.translateValue = new Animated.Value(0);
-    this.setState({selectedIndex: this.props.index});
+    this.translateValue = new Animated.Value(0)
+    this.setState({ selectedIndex: this.props.index })
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.index !== this.props.index) {
-      this.setState({selectedIndex: this.props.index}, () => {
+      this.setState({ selectedIndex: this.props.index }, () => {
         this.props.isScrollable && this.props.animateToIndex
           ? this.FlateList.scrollToIndex({
               animated: true,
               index: this.state.selectedIndex,
             })
-          : null;
-      });
+          : null
+      })
     }
   }
 
@@ -43,14 +48,14 @@ class ToggleGroup extends Component {
       ListEmptyComponent,
       refreshControl,
       extraData,
-    } = this.props;
+    } = this.props
     return (
       <View style={[styles.container, containerStyle]}>
         <FlatList
           ref={(ref) => (this.FlateList = ref)}
           style={[styles.flatListContainer, innerContainerStyle]}
           key="v"
-          contentContainerStyle={{flexGrow: 1}}
+          contentContainerStyle={{ flexGrow: 1 }}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
           data={values}
@@ -64,12 +69,12 @@ class ToggleGroup extends Component {
           keyExtractor={(item, index) => index.toString()}
           ListEmptyComponent={ListEmptyComponent}
           refreshControl={refreshControl}
-          renderItem={({item, index}) => (
+          renderItem={({ item, index }) => (
             <View style={styles.toggleItemSurface}>
               <TouchableOpacity
                 style={[
                   styles.toggleItemSurface,
-                  {width: itemWidth, height: itemHeight},
+                  { width: itemWidth, height: itemHeight },
                 ]}
                 onPress={() => {
                   this.setState({
@@ -77,17 +82,22 @@ class ToggleGroup extends Component {
                     selectedIndex: index,
                     item,
                   }),
-                    onItemClick(item, index);
-                }}>
+                    onItemClick(item, index)
+                }}
+              >
                 {this.state.selectedIndex === index
-                  ? itemRenderSelected(item, this.state.previousIndex, index)
+                  ? itemRenderSelected(
+                      item,
+                      this.state.previousIndex,
+                      index,
+                    )
                   : itemRender(item, index)}
               </TouchableOpacity>
             </View>
           )}
         />
       </View>
-    );
+    )
   }
 }
 
@@ -109,7 +119,7 @@ ToggleGroup.propTypes = {
   extraData: PropTypes.any,
   animateToIndex: PropTypes.bool,
   flatRef: PropTypes.string,
-};
+}
 
 ToggleGroup.defaultProps = {
   index: 0,
@@ -128,5 +138,5 @@ ToggleGroup.defaultProps = {
   refreshControl: null,
   animateToIndex: true,
   flatRef: 'flatList',
-};
-export default ToggleGroup;
+}
+export default ToggleGroup

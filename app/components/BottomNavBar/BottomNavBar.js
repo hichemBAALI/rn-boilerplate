@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react'
 import {
   Animated,
   SafeAreaView,
@@ -7,58 +7,59 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
-} from 'react-native';
-import styles from './styles';
-import BottomNavItem from './BottomNavItem';
-import {Log} from '../../utils/utils';
-import {BOTTOM_NAV_ITEMS_NUMBER} from '../../config/constants';
-import colors from '../../config/colors';
-import RemixIcon from '../../utils/icon/RemixIcons';
+} from 'react-native'
+import styles from './styles'
+import BottomNavItem from './BottomNavItem'
+import { Log } from '../../utils/utils'
+import { BOTTOM_NAV_ITEMS_NUMBER } from '../../config/constants'
+import colors from '../../config/colors'
+import RemixIcon from '../../utils/icon/RemixIcons'
 
 const BottomNavBar = (props) => {
-  Log(props);
-  const {navigation, descriptors, state, isArabic} = props;
+  Log(props)
+  const { navigation, descriptors, state, isArabic } = props
 
-  const {routes} = state;
-  const totalWidth = Dimensions.get('window').width;
-  const routeLenght = routes.length;
-  const activeTabWidth = totalWidth / routeLenght;
-  const inactiveTabWidth = totalWidth / routeLenght;
+  const { routes } = state
+  const totalWidth = Dimensions.get('window').width
+  const routeLenght = routes.length
+  const activeTabWidth = totalWidth / routeLenght
+  const inactiveTabWidth = totalWidth / routeLenght
 
-  const [translateValue] = useState(new Animated.Value(0));
+  const [translateValue] = useState(new Animated.Value(0))
   const onTabBarPress = (route, routeIndex, isFocuced) => {
-    onPress(route, isFocuced); // function that will change the route;
+    onPress(route, isFocuced) // function that will change the route;
     Animated.spring(translateValue, {
       toValue: isArabic
         ? -routeIndex * inactiveTabWidth
         : routeIndex * inactiveTabWidth,
       velocity: 10,
       useNativeDriver: true,
-    }).start(); // the animation that animates the active tab circle
-  };
+    }).start() // the animation that animates the active tab circle
+  }
 
   const onPress = (route, isFocused) => {
     const event = navigation.emit({
       type: 'tabPress',
       target: route.key,
       canPreventDefault: true,
-    });
+    })
 
     if (!isFocused && !event.defaultPrevented) {
-      navigation.navigate(route.name);
+      navigation.navigate(route.name)
     }
-  };
+  }
 
   const onLongPress = (route) => {
     navigation.emit({
       type: 'tabLongPress',
       target: route.key,
-    });
-  };
-  const focusedOptions = descriptors[state.routes[state.index].key].options;
-  Log(focusedOptions.tabBarVisible);
+    })
+  }
+  const focusedOptions =
+    descriptors[state.routes[state.index].key].options
+  Log(focusedOptions.tabBarVisible)
   if (focusedOptions.tabBarVisible === false) {
-    return null;
+    return null
   }
   return (
     <SafeAreaView>
@@ -70,28 +71,32 @@ const BottomNavBar = (props) => {
                 styles.activeTab,
                 {
                   width: activeTabWidth,
-                  transform: [{translateX: translateValue}],
+                  transform: [{ translateX: translateValue }],
                 },
-              ]}>
+              ]}
+            >
               <View style={styles.activeTabInner} />
             </Animated.View>
             {/* the container that we animate */}
           </View>
         </View>
         {routes.map((route, routeIndex) => {
-          const {options} = descriptors[route.key];
-          const isFocused = state.index === routeIndex;
+          const { options } = descriptors[route.key]
+          const isFocused = state.index === routeIndex
           return (
             <TouchableOpacity
               key={routeIndex}
-              style={isFocused ? styles.activeTab : styles.inactiveTab}
+              style={
+                isFocused ? styles.activeTab : styles.inactiveTab
+              }
               onPress={() => {
-                onTabBarPress(route, routeIndex, isFocused);
+                onTabBarPress(route, routeIndex, isFocused)
               }}
               onLongPress={() => {
-                onLongPress({route});
+                onLongPress({ route })
               }}
-              accessibilityLabel={options.tabBarAccessibilityLabel}>
+              accessibilityLabel={options.tabBarAccessibilityLabel}
+            >
               {options.isMainAction ? (
                 <View
                   style={{
@@ -104,7 +109,8 @@ const BottomNavBar = (props) => {
                     backgroundColor: colors.mainBackground,
                     alignSelf: 'center',
                     marginBottom: isFocused ? 62 : 36,
-                  }}>
+                  }}
+                >
                   <View
                     style={{
                       width: 76,
@@ -115,7 +121,8 @@ const BottomNavBar = (props) => {
                       backgroundColor: isFocused
                         ? colors.primary
                         : colors.secondary,
-                    }}>
+                    }}
+                  >
                     <RemixIcon
                       name="qr-scan-2-line"
                       color={colors.white}
@@ -135,11 +142,11 @@ const BottomNavBar = (props) => {
                 />
               )}
             </TouchableOpacity>
-          );
+          )
         })}
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default BottomNavBar;
+export default BottomNavBar

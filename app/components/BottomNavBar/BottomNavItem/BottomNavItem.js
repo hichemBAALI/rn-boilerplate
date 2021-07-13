@@ -1,20 +1,21 @@
-import React, {Component} from 'react';
-import {View} from 'react-native';
-import colors from '../../../config/colors';
-import RemixIcon from '../../../utils/icon/RemixIcons';
-import styles from './styles';
-import CustomText from '../../CustomText';
-import {FONT_WEIGHT} from '../../../config/constants';
+import React, { Component } from 'react'
+import { View } from 'react-native'
+import colors from '../../../config/colors'
+import RemixIcon from '../../../utils/icon/RemixIcons'
+import styles from './styles'
+import CustomText from '../../CustomText'
+import { FONT_WEIGHT } from '../../../config/constants'
 
 class BottomNavItem extends Component {
   constructor() {
-    super();
+    super()
   }
 
   componentDidMount() {}
 
   render() {
-    const {isFocused, tabBarIcon, tabBarLabel, isLabelShown} = this.props;
+    const { isFocused, tabBarIcon, tabBarLabel, isLabelShown } =
+      this.props
     return (
       <View style={styles.itemContainer}>
         <RemixIcon
@@ -33,8 +34,8 @@ class BottomNavItem extends Component {
           />
         ) : null}
       </View>
-    );
+    )
   }
 }
 
-export default BottomNavItem;
+export default BottomNavItem

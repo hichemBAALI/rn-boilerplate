@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   SeparatorStyle: {
@@ -7,4 +7,4 @@ export default StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
   },
-});
+})

@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import Styles from '../../../config/styles';
+import { StyleSheet } from 'react-native'
+import Styles from '../../../config/styles'
 
 export default StyleSheet.create({
   container: {
@@ -19,4 +19,4 @@ export default StyleSheet.create({
     borderWidth: 1,
     alignItems: 'center',
   },
-});
+})

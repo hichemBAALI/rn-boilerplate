@@ -1,3 +1,3 @@
-import NoItem from './NoItem';
+import NoItem from './NoItem'
 
-export default NoItem;
+export default NoItem

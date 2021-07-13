@@ -32,4 +32,4 @@ export default {
   yellow_800: '#ffc300',
   yellow_800_alpha: 'rgba(255, 195, 0, 0.5)',
   black_alpha: 'rgba(0, 0, 0, 0.4)',
-};
+}

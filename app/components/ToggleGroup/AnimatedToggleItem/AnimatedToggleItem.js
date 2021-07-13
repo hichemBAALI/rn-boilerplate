@@ -1,14 +1,20 @@
-import React, {Component} from 'react';
-import {Animated, Easing, Text, TouchableOpacity, View} from 'react-native';
-import PropTypes from 'prop-types';
-import styles from './styles';
+import React, { Component } from 'react'
+import {
+  Animated,
+  Easing,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
+import PropTypes from 'prop-types'
+import styles from './styles'
 
 class AnimatedToggleItem extends Component {
   constructor() {
-    super();
-    this.state = {};
-    this.animatedValue = new Animated.Value(0);
-    this.width = 100;
+    super()
+    this.state = {}
+    this.animatedValue = new Animated.Value(0)
+    this.width = 100
   }
 
   componentDidMount() {}
@@ -16,7 +22,7 @@ class AnimatedToggleItem extends Component {
   componentDidUpdate(prevProps, prevState) {
     this.props.isSelected
       ? this.handleAnimation()
-      : (this.animatedValue = new Animated.Value(0));
+      : (this.animatedValue = new Animated.Value(0))
   }
 
   handleAnimation = () => {
@@ -24,8 +30,8 @@ class AnimatedToggleItem extends Component {
       toValue: 1,
       duration: 300,
       easing: Easing.elastic(1.7),
-    }).start();
-  };
+    }).start()
+  }
 
   render() {
     const {
@@ -35,7 +41,7 @@ class AnimatedToggleItem extends Component {
       isSelected,
       previousIndex,
       selectedIndex,
-    } = this.props;
+    } = this.props
     return isSelected ? (
       <View style={[styles.container, containerStyle]}>
         {innerComponent}
@@ -48,7 +54,9 @@ class AnimatedToggleItem extends Component {
                   translateX: this.animatedValue.interpolate({
                     inputRange: [0, 1],
                     outputRange:
-                      previousIndex > selectedIndex ? [40, 0] : [-40, 0], // 0 : 150, 0.5 : 75, 1 : 0
+                      previousIndex > selectedIndex
+                        ? [40, 0]
+                        : [-40, 0], // 0 : 150, 0.5 : 75, 1 : 0
                   }),
                 },
                 {
@@ -64,8 +72,10 @@ class AnimatedToggleItem extends Component {
         />
       </View>
     ) : (
-      <View style={[styles.container, containerStyle]}>{innerComponent}</View>
-    );
+      <View style={[styles.container, containerStyle]}>
+        {innerComponent}
+      </View>
+    )
   }
 }
 
@@ -74,13 +84,13 @@ AnimatedToggleItem.propTypes = {
   selectedItemStyle: PropTypes.any,
   innerComponent: PropTypes.any,
   isSelected: PropTypes.bool,
-};
+}
 
 AnimatedToggleItem.defaultProps = {
   containerStyle: {},
   selectedItemStyle: {},
   innerComponent: () => {},
   isSelected: false,
-};
+}
 
-export default AnimatedToggleItem;
+export default AnimatedToggleItem

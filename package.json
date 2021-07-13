@@ -140,8 +140,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn run format",
-      "...": "..."
+      "pre-push": "yarn run format"
     }
   }
 }

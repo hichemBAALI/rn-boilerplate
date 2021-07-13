@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {View} from 'react-native';
-import colors from '../../config/colors';
-import styles from './styles';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { View } from 'react-native'
+import colors from '../../config/colors'
+import styles from './styles'
 
 const Separator = (props) => (
   <View
@@ -15,19 +15,19 @@ const Separator = (props) => (
       },
     ]}
   />
-);
+)
 
 Separator.propTypes = {
   isVertical: PropTypes.bool,
   size: PropTypes.any,
   color: PropTypes.string,
   style: PropTypes.shape(),
-};
+}
 
 Separator.defaultProps = {
   isVertical: false,
   size: undefined,
   color: colors.blue_900,
   style: {},
-};
-export default Separator;
+}
+export default Separator

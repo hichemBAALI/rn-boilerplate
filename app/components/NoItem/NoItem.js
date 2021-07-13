@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {View} from 'react-native';
-import {locale} from '../../utils/localization/localization';
-import styles from './styles';
-import CustomText from '../CustomText';
-import {FONT_WEIGHT} from '../../config/constants';
-import colors from '../../config/colors';
+import React, { Component } from 'react'
+import { View } from 'react-native'
+import { locale } from '../../utils/localization/localization'
+import styles from './styles'
+import CustomText from '../CustomText'
+import { FONT_WEIGHT } from '../../config/constants'
+import colors from '../../config/colors'
 
 class NoItem extends Component {
   render() {
@@ -17,7 +17,7 @@ class NoItem extends Component {
           content={locale('no item')}
         />
       </View>
-    );
+    )
   }
 }
-export default NoItem;
+export default NoItem
