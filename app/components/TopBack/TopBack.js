@@ -1,8 +1,13 @@
-import React from 'react';
-import {View, TouchableOpacity, StyleSheet, I18nManager} from 'react-native';
-import PropTypes from 'prop-types';
-import colors from '../../config/colors';
-import RemixIcon from '../../utils/icon/RemixIcons';
+import React from 'react'
+import {
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  I18nManager,
+} from 'react-native'
+import PropTypes from 'prop-types'
+import colors from '../../config/colors'
+import RemixIcon from '../../utils/icon/RemixIcons'
 
 const styles = StyleSheet.create({
   container: {
@@ -16,22 +21,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
 
-const TopBack = props => (
+const TopBack = (props) => (
   <TouchableOpacity
     style={[styles.container, props.containerStyle]}
-    onPress={props.onPress}>
+    onPress={props.onPress}
+  >
     <View style={styles.iconContainer}>
       <RemixIcon
         name={props.name}
         size={props.size}
         color={props.color}
-        style={{transform: [{rotateY: I18nManager.isRTL ? '180deg' : '0deg'}]}}
+        style={{
+          transform: [
+            { rotateY: I18nManager.isRTL ? '180deg' : '0deg' },
+          ],
+        }}
       />
     </View>
   </TouchableOpacity>
-);
+)
 
 TopBack.propTypes = {
   onPress: PropTypes.func.isRequired,
@@ -39,13 +49,13 @@ TopBack.propTypes = {
   name: PropTypes.string,
   size: PropTypes.number,
   color: PropTypes.string,
-};
+}
 
 TopBack.defaultProps = {
   containerStyle: {},
   name: 'ic_arrowback',
   size: 24,
   color: colors.blackColor,
-};
+}
 
-export default TopBack;
+export default TopBack

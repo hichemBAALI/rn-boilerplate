@@ -1,3 +1,3 @@
-import TopBack from './TopBack';
+import TopBack from './TopBack'
 
-export default TopBack;
+export default TopBack

@@ -51,6 +51,5 @@ fastlane/Preview.html
 fastlane/screenshots
 /.tmp/
 /flow-typed/
-/.vscode/
 package-lock.json
 /ios/Pods/

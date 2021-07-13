@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {View} from 'react-native';
-import styles from './styles';
-import CustomText from '../CustomText';
-import {FONT_WEIGHT, TEXT_ALIGN} from '../../config/constants';
-import colors from '../../config/colors';
+import React, { Component } from 'react'
+import { View } from 'react-native'
+import styles from './styles'
+import CustomText from '../CustomText'
+import { FONT_WEIGHT, TEXT_ALIGN } from '../../config/constants'
+import colors from '../../config/colors'
 
 class VersionTag extends Component {
   render() {
@@ -14,9 +14,7 @@ class VersionTag extends Component {
             <CustomText
               style={[
                 styles.diagonalRectangle,
-                {
-                  backgroundColor: this.props.backgroundColor,
-                },
+                { backgroundColor: this.props.backgroundColor },
               ]}
               content={this.props.versionTagText}
               size={12}
@@ -27,7 +25,7 @@ class VersionTag extends Component {
           </View>
         )}
       </View>
-    );
+    )
   }
 }
-export default VersionTag;
+export default VersionTag

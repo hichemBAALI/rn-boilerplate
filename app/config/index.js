@@ -1,5 +1,3 @@
-const Config = {
-  version: '1.0.0',
-};
+const Config = { version: '1.0.0' }
 
-export default Config;
+export default Config

@@ -1,9 +1,9 @@
-import connection from './connection';
-import configuration from './configuration';
+import connection from './connection'
+import configuration from './configuration'
 
 const rootReducers = {
   connection,
   configuration,
-};
+}
 
-export default rootReducers;
+export default rootReducers

@@ -1,3 +1,3 @@
-import CustomTextInput from './CustomTextInput';
+import CustomTextInput from './CustomTextInput'
 
-export default CustomTextInput;
+export default CustomTextInput

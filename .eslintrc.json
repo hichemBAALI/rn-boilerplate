@@ -1,25 +1,68 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "jest": true
-  },
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "eslint:recommended"
-  ],
+  "root": true,
   "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "plugin:flowtype/recommended"],
+  "plugins": ["react", "react-native", "jsx-a11y", "import", "react-hooks"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
-    },
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    }
   },
-  "plugins": ["react"],
+  "env": {
+    "react-native/react-native": true
+  },
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "arrow-parens": "always"
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": ["off"],
+    "react/jsx-one-expression-per-line": "off",
+    "linebreak-style": ["off"],
+    "implicit-arrow-linebreak": "off",
+    "no-undef": ["error"],
+    "react/sort-comp": ["off"],
+    "react/prefer-stateless-function": ["off"],
+    "react/destructuring-assignment": 1,
+    "function-paren-newline": "off",
+    "spaced-comment": "off",
+    "react/prop-types": "off",
+    "no-extra-boolean-cast": "off",
+    "quote-props": "off",
+    "object-curly-spacing": ["error", "always"],
+    "camelcase": "off",
+    "react/jsx-wrap-multilines": "off",
+    "operator-linebreak": "off",
+    "no-unused-expressions": "off",
+    "global-require": "off",
+    "max-len": "off",
+    "import/no-cycle": "off",
+    "no-underscore-dangle": "off",
+    "no-return-assign": "off",
+    "import/prefer-default-export": "off",
+    "jsx-quotes": ["error", "prefer-double"],
+    "no-console": "off",
+    "arrow-parens": "off",
+    "eol-last": "off",
+    "react/destructuring-assignment": "off",
+    "react-native/no-unused-styles": "off",
+    "react-native/split-platform-components": "off",
+    "react-native/no-inline-styles": "off",
+    "react-native/no-color-literals": "off",
+    "react-native/no-raw-text": "off",
+    "consistent-return": "off",
+    "import/named": "off",
+    "object-curly-newline": ["error", {"multiline": true}],
+    "no-nested-ternary": "off",
+    "no-use-before-define": "error",
+    "no-unused-vars": "warn",
+    "new-cap": "off",
+    "no-param-reassign": "off",
+    "no-await-in-loop": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ios.js", ".android.js"]
+      }
+    }
   }
 }

@@ -1,15 +1,19 @@
-import {NativeModules, Platform} from 'react-native';
-import {CHANGE_LANGUAGE, GET_LANGUAGES, IOS} from '../config/constants';
+import { NativeModules, Platform } from 'react-native'
+import {
+  CHANGE_LANGUAGE,
+  GET_LANGUAGES,
+  IOS,
+} from '../config/constants'
 
 const getDefaultLocal = () => {
   const local =
     Platform.OS === IOS
       ? NativeModules.SettingsManager.settings.AppleLocale
-      : NativeModules.I18nManager.localeIdentifier;
+      : NativeModules.I18nManager.localeIdentifier
 
-  const localCode = local.substring(0, 2);
-  return localCode;
-};
+  const localCode = local.substring(0, 2)
+  return localCode
+}
 const defaultState = {
   lang: getDefaultLocal(),
   languages: [
@@ -26,7 +30,7 @@ const defaultState = {
       label: 'english',
     },
   ],
-};
+}
 
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -34,13 +38,13 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         lang: action.lang,
-      };
+      }
     case GET_LANGUAGES:
       return {
         ...state,
         languages: action.languages,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

@@ -1,3 +1,3 @@
-import VersionTag from './VersionTag';
+import VersionTag from './VersionTag'
 
-export default VersionTag;
+export default VersionTag

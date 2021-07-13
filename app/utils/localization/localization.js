@@ -1,28 +1,29 @@
-import I18n from 'react-native-i18n';
-import numeral from 'numeral';
-import en from './en.json';
-import fr from './fr.json';
-import ar from './ar.json';
+import I18n from 'react-native-i18n'
+import numeral from 'numeral'
+import en from './en.json'
+import fr from './fr.json'
+import ar from './ar.json'
 
-I18n.fallbacks = true;
-I18n.translations = {en, fr, ar};
+I18n.fallbacks = true
+I18n.translations = { en, fr, ar }
 
-const locale = (word, value) => (value ? I18n.t(word, {value}) : I18n.t(word));
+const locale = (word, value) =>
+  value ? I18n.t(word, { value }) : I18n.t(word)
 
 const currentLocal = () => {
-  const localCode = I18n.currentLocale().split('-').shift();
+  const localCode = I18n.currentLocale().split('-').shift()
   if (localCode in I18n.translations) {
-    return localCode;
+    return localCode
   }
-  return 'en';
-};
+  return 'en'
+}
 
-const updateCurrentLocale = lang => {
+const updateCurrentLocale = (lang) => {
   if (!lang) {
-    return;
+    return
   }
-  I18n.locale = lang;
-};
+  I18n.locale = lang
+}
 
 numeral.register('locale', 'fr', {
   delimiters: {
@@ -36,12 +37,10 @@ numeral.register('locale', 'fr', {
     trillion: 't',
   },
   ordinal(number) {
-    return number === 1 ? 'er' : 'ème';
+    return number === 1 ? 'er' : 'ème'
   },
-  currency: {
-    symbol: '',
-  },
-});
+  currency: { symbol: '' },
+})
 
 numeral.register('locale', 'ar', {
   delimiters: {
@@ -56,13 +55,11 @@ numeral.register('locale', 'ar', {
   },
   // eslint-disable-next-line no-unused-vars
   ordinal(number) {
-    return '';
+    return ''
   },
-  currency: {
-    symbol: '',
-  },
-});
+  currency: { symbol: '' },
+})
 
-numeral.locale('fr');
+numeral.locale('fr')
 
-export {locale, currentLocal, updateCurrentLocale};
+export { locale, currentLocal, updateCurrentLocale }

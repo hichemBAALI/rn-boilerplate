@@ -1,3 +1,3 @@
-import FlashMessageComponent from './FlashMessageComponent';
+import FlashMessageComponent from './FlashMessageComponent'
 
-export default FlashMessageComponent;
+export default FlashMessageComponent

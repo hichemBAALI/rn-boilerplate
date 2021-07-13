@@ -1,3 +1,3 @@
-import BottomNavItem from './BottomNavItem';
+import BottomNavItem from './BottomNavItem'
 
-export default BottomNavItem;
+export default BottomNavItem

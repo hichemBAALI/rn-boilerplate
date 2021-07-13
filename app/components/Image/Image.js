@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {createImageProgress} from 'react-native-image-progress';
-import FastImage from 'react-native-fast-image';
-import colors from '../../config/colors';
+import React, { Component } from 'react'
+import { createImageProgress } from 'react-native-image-progress'
+import FastImage from 'react-native-fast-image'
+import colors from '../../config/colors'
 
-const Image = createImageProgress(FastImage);
+const Image = createImageProgress(FastImage)
 class CachedImage extends Component {
   constructor() {
-    super();
+    super()
   }
 
   render() {
@@ -26,8 +26,8 @@ class CachedImage extends Component {
           unfilledColor: colors.white,
         }}
       />
-    );
+    )
   }
 }
 
-export default CachedImage;
+export default CachedImage

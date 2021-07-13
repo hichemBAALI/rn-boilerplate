@@ -1,7 +1,7 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native'
 // eslint-disable-next-line import/named
-import colors from '../../config/colors';
-import Style from '../../config/styles';
+import colors from '../../config/colors'
+import Style from '../../config/styles'
 
 export default StyleSheet.create({
   container: {
@@ -54,4 +54,4 @@ export default StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
   },
-});
+})

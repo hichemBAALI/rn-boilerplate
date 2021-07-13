@@ -1,3 +1,3 @@
-import BottomNavBar from './BottomNavBar';
+import BottomNavBar from './BottomNavBar'
 
-export default BottomNavBar;
+export default BottomNavBar

@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
-import colors from '../../config/colors';
-import Style from '../../config/styles';
+import { StyleSheet } from 'react-native'
+import colors from '../../config/colors'
+import Style from '../../config/styles'
 
 export default StyleSheet.create({
   buttonContainer: {
@@ -14,33 +14,25 @@ export default StyleSheet.create({
     alignItems: 'center',
     margin: 5,
   },
-  actionFillContainerStyle: {
-    backgroundColor: colors.primary,
-  },
+  actionFillContainerStyle: { backgroundColor: colors.primary },
 
   actionLineContainerStyle: {
     borderWidth: 2,
     borderColor: colors.primary,
   },
 
-  cancelFillContainerStyle: {
-    backgroundColor: colors.secondary,
-  },
+  cancelFillContainerStyle: { backgroundColor: colors.secondary },
 
   cancelLineContainerStyle: {
     borderWidth: 2,
     borderColor: colors.secondary,
   },
 
-  disableContainerStyle: {
-    backgroundColor: colors.grey_100,
-  },
+  disableContainerStyle: { backgroundColor: colors.grey_100 },
 
   skipContainerStyle: {
     borderWidth: 2,
     borderColor: colors.grey_300,
   },
-  buttonText: {
-    flex: 1,
-  },
-});
+  buttonText: { flex: 1 },
+})
