@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView, BackHandler, View } from 'react-native'
 import {
   FONT_WEIGHT,
@@ -15,39 +14,39 @@ import { exitApp } from '../../../utils/utils'
 import ToggleGroup from '../../../components/ToggleGroup'
 import { showFlashMessage } from '../../../utils/alerts'
 
-class HomeScreen extends Component {
-  constructor(props) {
-    super(props)
-    this.exitApp = exitApp.bind(this)
-    this.state = {
-      screenName: props.route.name,
-      toggleValues: [
-        { name: 'Hot' },
-        { name: 'New' },
-        { name: 'Top 10' },
-        { name: 'Last seen' },
-        { name: 'Best Selling' },
-      ],
-    }
+const HomeScreen = (props) => {
+  const [toggleValues] = useState([
+    { name: 'Hot' },
+    { name: 'New' },
+    { name: 'Top 10' },
+    { name: 'Last seen' },
+    { name: 'Best Selling' },
+  ])
+  const [screenName] = useState(props.route.name)
+  const [index, setIndex] = useState(0)
+  const [toggleSelectedItem, setToggleSelectedItem] = useState()
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', exitApp)
+    return () =>
+      BackHandler.removeEventListener('hardwareBackPress', exitApp)
+  }, [])
+
+  useEffect(() => {
+    toggleSelectedItem
+      ? showFlashMessage(
+          `${toggleSelectedItem?.name} was clicked`,
+          IS_SUCCESS_MESSAGE,
+        )
+      : null
+  }, [toggleSelectedItem])
+
+  const handleItemClicked = (item, index) => {
+    setIndex(index)
+    setToggleSelectedItem(item)
   }
 
-  componentWillMount(): void {
-    this.backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      this.exitApp,
-    )
-  }
-
-  componentDidMount() {}
-
-  componentWillUnmount(): void {
-    this.backHandler = BackHandler.removeEventListener(
-      'hardwareBackPress',
-      this.exitApp,
-    )
-  }
-
-  itemRender = (item, isSelected) => (
+  const itemRender = (item, isSelected) => (
     <View
       style={[
         styles.toggleItemStyle,
@@ -70,60 +69,33 @@ class HomeScreen extends Component {
       />
     </View>
   )
-
-  render() {
-    const { screenName, toggleValues, index, toggleSelectedItem } =
-      this.state
-    return (
-      <SafeAreaView style={styles.container}>
-        <CustomText
-          content={`HomeStack - ${screenName}`}
-          size={18}
-          textAlign={TEXT_ALIGN.CENTER}
-          weight={FONT_WEIGHT.REGULAR}
-          color={colors.grey_300}
-          style={{ padding: 16 }}
-        />
-        <ToggleGroup
-          index={index}
-          values={toggleValues}
-          onItemClick={(item, index) => {
-            this.setState(
-              {
-                toggleSelectedItem: item,
-                index,
-              },
-              () => {
-                showFlashMessage(
-                  `${toggleSelectedItem?.name} was clicked`,
-                  IS_SUCCESS_MESSAGE,
-                )
-              },
-            )
-          }}
-          itemRender={(item) => this.itemRender(item)}
-          itemRenderSelected={(item) => this.itemRender(item, true)}
-          horizontal
-          isScrollable
-          itemWidth={null}
-          itemHeight={56}
-        />
-        <Button
-          onPress={() =>
-            this.props.navigation.navigate(`${HOME_SCREEN}1`)
-          }
-          text="Next"
-        />
-      </SafeAreaView>
-    )
-  }
+  return (
+    <SafeAreaView style={styles.container}>
+      <CustomText
+        content={`HomeStack - ${screenName}`}
+        size={18}
+        textAlign={TEXT_ALIGN.CENTER}
+        weight={FONT_WEIGHT.REGULAR}
+        color={colors.grey_300}
+        style={{ padding: 16 }}
+      />
+      <ToggleGroup
+        index={index}
+        values={toggleValues}
+        onItemClick={handleItemClicked}
+        itemRender={(item) => itemRender(item)}
+        itemRenderSelected={(item) => itemRender(item, true)}
+        horizontal
+        isScrollable
+        itemWidth={null}
+        itemHeight={56}
+      />
+      <Button
+        onPress={() => props.navigation.navigate(`${HOME_SCREEN}1`)}
+        text="Next"
+      />
+    </SafeAreaView>
+  )
 }
 
-const mapDispatchToProps = (dispatch) => ({})
-
-const mapStateToProps = (state) => ({})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(HomeScreen)
+export default HomeScreen
