@@ -1,7 +1,7 @@
 import {
   DESTROY_SESSION,
   IS_SPLASH_LOADING,
-} from '../config/constants'
+} from '../../config/constants'
 
 const defaultState = { isSplashLoading: true }
 

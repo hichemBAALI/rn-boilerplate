@@ -4,10 +4,10 @@ import {
   GET_LANGUAGES,
   IS_LOADING,
   STATUS_OK,
-} from '../config/constants'
-import { API_LANGUAGES } from '../utils/api'
-import { showRejectFlashMessage } from '../utils/alerts'
-import { crashlyticsRecordError, Log } from '../utils/utils'
+} from '../../config/constants'
+import { API_LANGUAGES } from '../../utils/api'
+import { showRejectFlashMessage } from '../../utils/alerts'
+import { crashlyticsRecordError, Log } from '../../utils/utils'
 
 const dispatchChangeLanguage = (lang) =>
   function (dispatch) {

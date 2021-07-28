@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import RNRestart from 'react-native-restart'
 import images from '../../config/images'
 import styles from './styles'
-import { dispatchSetIsSplashLoading } from '../../actions/connection'
+import { dispatchSetIsSplashLoading } from '../../state/actions/connection'
 import { updateCurrentLocale } from '../../utils/localization/localization'
 
 class SplashScreen extends Component {
@@ -45,7 +45,9 @@ const mapDispatchToProps = (dispatch) => ({
   dispatchSetIsSplashLoading: (isSplashLoading) =>
     dispatch(dispatchSetIsSplashLoading(isSplashLoading)),
 })
-const mapStateToProps = (state) => ({ configuration: state.configuration, })
+const mapStateToProps = (state) => ({
+  configuration: state.configuration,
+})
 
 export default connect(
   mapStateToProps,

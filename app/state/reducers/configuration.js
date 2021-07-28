@@ -3,7 +3,7 @@ import {
   CHANGE_LANGUAGE,
   GET_LANGUAGES,
   IOS,
-} from '../config/constants'
+} from '../../config/constants'
 
 const getDefaultLocal = () => {
   const local =
