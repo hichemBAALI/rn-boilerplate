@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import styles from './styles'
@@ -16,82 +16,78 @@ import colors from '../../config/colors'
 import CustomText from '../CustomText'
 import RemixIcon from '../../utils/icon/RemixIcons'
 
-class Button extends Component {
-  render() {
-    const {
-      holderIconName,
-      holderIconColor,
-      type,
-      onPress,
-      width,
-      style,
-      text,
-      textSize,
-      textColor,
-      textStyle,
-    } = this.props
+const Button = (props) => {
+  const [typeStyle, setTypeStyle] = useState()
+  const [textColor, setTextColor] = useState(props.textColor)
+  const {
+    holderIconName,
+    holderIconColor,
+    type,
+    onPress,
+    width,
+    style,
+    text,
+    textStyle,
+    textSize,
+  } = props
+  useEffect(() => {
     switch (type) {
       case IS_VALIDATE_FILL_TYPE:
-        this.typeStyle = styles.actionFillContainerStyle
-        this.textStyle = colors.white
+        setTypeStyle(styles.actionFillContainerStyle)
+        setTextColor(colors.white)
         break
       case IS_VALIDATE_LINE_TYPE:
-        this.typeStyle = styles.actionLineContainerStyle
-        this.textStyle = colors.red_400
+        setTypeStyle(styles.actionLineContainerStyle)
+        setTextColor(colors.red_400)
         break
       case IS_CANCEL_FILL_TYPE:
-        this.typeStyle = styles.cancelFillContainerStyle
-        this.textStyle = colors.white
+        setTypeStyle(styles.cancelFillContainerStyle)
+        setTextColor(colors.white)
         break
       case IS_CANCEL_LINE_TYPE:
-        this.typeStyle = styles.cancelLineContainerStyle
-        this.textStyle = colors.yellow_800
+        setTypeStyle(styles.cancelLineContainerStyle)
+        setTextColor(colors.yellow_800)
         break
       case IS_DISABLED_TYPE:
-        this.typeStyle = styles.disableContainerStyle
-        this.textStyle = colors.grey_550
+        setTypeStyle(styles.disableContainerStyle)
+        setTextColor(colors.grey_550)
         break
       case IS_SKIP_TYPE:
-        this.typeStyle = styles.skipContainerStyle
-        this.textStyle = colors.grey_300
+        setTypeStyle(styles.skipContainerStyle)
+        setTextColor(colors.grey_300)
         break
       default:
-        this.typeStyle = styles.actionContainerStyle
-        this.textStyle = colors.white
+        setTypeStyle(styles.actionContainerStyle)
         break
     }
+  }, [])
 
-    return (
-      <TouchableOpacity
-        onPress={onPress}
-        disabled={type === IS_DISABLED_TYPE}
-        style={[
-          styles.buttonContainer,
-          this.typeStyle,
-          { width },
-          style,
-        ]}
-      >
-        {holderIconName ? (
-          <RemixIcon
-            name={holderIconName}
-            color={holderIconColor}
-            size={24}
-            style={{ alignItems: 'center' }}
-          />
-        ) : null}
-        <CustomText
-          style={[styles.buttonText, textStyle]}
-          size={textSize}
-          content={text}
-          weight={FONT_WEIGHT.REGULAR}
-          textAlign={TEXT_ALIGN.CENTER}
-          color={textColor || this.textStyle}
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      disabled={type === IS_DISABLED_TYPE}
+      style={[styles.buttonContainer, typeStyle, { width }, style]}
+    >
+      {holderIconName ? (
+        <RemixIcon
+          name={holderIconName}
+          color={holderIconColor}
+          size={24}
+          style={{ alignItems: 'center' }}
         />
-      </TouchableOpacity>
-    )
-  }
+      ) : null}
+      <CustomText
+        style={[styles.buttonText, textStyle]}
+        size={textSize}
+        content={text}
+        weight={FONT_WEIGHT.REGULAR}
+        textAlign={TEXT_ALIGN.CENTER}
+        color={textColor}
+      />
+    </TouchableOpacity>
+  )
 }
+
 Button.propTypes = {
   text: PropTypes.string,
   textSize: PropTypes.number,

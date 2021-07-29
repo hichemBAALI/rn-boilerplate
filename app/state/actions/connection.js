@@ -1,4 +1,4 @@
-import { IS_SPLASH_LOADING } from '../config/constants'
+import { IS_SPLASH_LOADING } from '../../config/constants'
 
 const dispatchSetIsSplashLoading = (isSplashLoading) =>
   function (dispatch) {

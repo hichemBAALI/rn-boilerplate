@@ -6,37 +6,21 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
-  Image,
 } from 'react-native'
 import styles from './styles'
 import BottomNavItem from './BottomNavItem'
-import { Log } from '../../utils/utils'
-import { BOTTOM_NAV_ITEMS_NUMBER } from '../../config/constants'
 import colors from '../../config/colors'
 import RemixIcon from '../../utils/icon/RemixIcons'
 
 const BottomNavBar = (props) => {
-  Log(props)
   const { navigation, descriptors, state, isArabic } = props
-
   const { routes } = state
   const totalWidth = Dimensions.get('window').width
-  const routeLenght = routes.length
-  const activeTabWidth = totalWidth / routeLenght
-  const inactiveTabWidth = totalWidth / routeLenght
+  const routeLength = routes.length
+  const activeTabWidth = totalWidth / routeLength
+  const inactiveTabWidth = totalWidth / routeLength
 
   const [translateValue] = useState(new Animated.Value(0))
-  const onTabBarPress = (route, routeIndex, isFocuced) => {
-    onPress(route, isFocuced) // function that will change the route;
-    Animated.spring(translateValue, {
-      toValue: isArabic
-        ? -routeIndex * inactiveTabWidth
-        : routeIndex * inactiveTabWidth,
-      velocity: 10,
-      useNativeDriver: true,
-    }).start() // the animation that animates the active tab circle
-  }
-
   const onPress = (route, isFocused) => {
     const event = navigation.emit({
       type: 'tabPress',
@@ -49,6 +33,17 @@ const BottomNavBar = (props) => {
     }
   }
 
+  const onTabBarPress = (route, routeIndex, isFocused) => {
+    onPress(route, isFocused) // function that will change the route;
+    Animated.spring(translateValue, {
+      toValue: isArabic
+        ? -routeIndex * inactiveTabWidth
+        : routeIndex * inactiveTabWidth,
+      velocity: 10,
+      useNativeDriver: true,
+    }).start() // the animation that animates the active tab circle
+  }
+
   const onLongPress = (route) => {
     navigation.emit({
       type: 'tabLongPress',
@@ -57,7 +52,6 @@ const BottomNavBar = (props) => {
   }
   const focusedOptions =
     descriptors[state.routes[state.index].key].options
-  Log(focusedOptions.tabBarVisible)
   if (focusedOptions.tabBarVisible === false) {
     return null
   }

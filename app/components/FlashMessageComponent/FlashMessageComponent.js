@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { render } from 'redux-logger/src/diff'
+import React from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import RemixIcon from '../../utils/icon/RemixIcons'
 import colors from '../../config/colors'

@@ -35,7 +35,7 @@ export default StyleSheet.create({
     borderColor: colors.green_300,
   },
 
-  gayedOutStyle: {
+  grayedOutStyle: {
     borderColor: colors.grey_100,
     backgroundColor: colors.grey_100,
   },
