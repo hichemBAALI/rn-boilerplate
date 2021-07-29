@@ -1,12 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { View, TouchableOpacity } from 'react-native'
+import { View } from 'react-native'
 import styles from './styles'
 import CustomText from '../CustomText'
 import { FONT_WEIGHT, TEXT_ALIGN } from '../../config/constants'
 import colors from '../../config/colors'
-import RemixIcon from '../../utils/icon/RemixIcons'
-import images from '../../config/images'
 
 const Header = (props) => (
   <View style={[styles.container]}>
@@ -23,7 +20,4 @@ const Header = (props) => (
   </View>
 )
 
-Header.propTypes = {}
-
-Header.defaultProps = {}
 export default Header

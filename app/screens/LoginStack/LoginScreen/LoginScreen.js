@@ -9,7 +9,9 @@ import {
   BOTTOM_NAV_STACK,
   FONT_WEIGHT,
   IS_BLUR,
+  IS_ERROR,
   IS_FOCUS,
+  IS_GRAYED_OUT,
   TEXT_ALIGN,
 } from '../../../config/constants'
 import colors from '../../../config/colors'
@@ -30,6 +32,16 @@ const LoginScreen = (props) => {
   const [passwordStatus, setPasswordStatus] = useState()
 
   const handleLogin = () => {
+    let valid = true
+    if (!username || username.trim() === '') {
+      setUsernameStatus(IS_ERROR)
+      valid = false
+    }
+    if (!password || password.trim() === '') {
+      setPasswordStatus(IS_ERROR)
+      valid = false
+    }
+    if (!valid) return
     props.navigation.navigate(BOTTOM_NAV_STACK)
   }
 
@@ -55,7 +67,6 @@ const LoginScreen = (props) => {
       />
       <CustomTextInput
         onChangeText={(text) => setPassword(text)}
-        holderIconName="lock-2-line"
         status={passwordStatus}
         value={password}
         onFocus={() => setPasswordStatus(IS_FOCUS)}

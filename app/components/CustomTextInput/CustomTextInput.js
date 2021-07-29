@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { View, TextInput } from 'react-native'
 import colors from '../../config/colors'
@@ -12,124 +12,106 @@ import {
 } from '../../config/constants'
 import RemixIcon from '../../utils/icon/RemixIcons'
 
-class CustomTextInput extends Component {
-  constructor(props, ref) {
-    super()
-    this.state = { status: IS_BLUR }
-  }
+const CustomTextInput = (props) => {
+  const [status, setStatus] = useState(props.status)
+  const [advancedStyle, setAdvancedStyle] = useState(
+    styles.containerStyle,
+  )
 
-  componentDidMount(): void {
-    this.setState({ status: this.props.status })
-  }
+  const {
+    containerStyle,
+    keyboardType,
+    value,
+    onSubmitEditing,
+    placeholder,
+    color,
+    isEditable,
+    holderIconName,
+    onChangeText,
+    secureTextEntry,
+    sideComponent,
+    onFocus,
+    onBlur,
+    maxLength,
+    style,
+  } = props
 
-  getInnerRef = () => this.ref
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.status !== this.props.status) {
-      this.setState({ status: this.props.status })
-    }
-  }
-
-  advencedStyle = () => {
-    switch (this.state.status) {
+  useEffect(() => {
+    switch (props.status) {
       case IS_FOCUS:
-        return styles.focusStyle
+        setAdvancedStyle(styles.focusStyle)
+        break
       case IS_BLUR:
-        return this.props.containerStyle
+        setAdvancedStyle(props.containerStyle)
+        break
       case IS_ERROR:
-        return styles.errorStyle
+        setAdvancedStyle(styles.errorStyle)
+        break
       case IS_SUCCESS:
-        return styles.successStyle
+        setAdvancedStyle(styles.successStyle)
+        break
       case IS_GRAYED_OUT:
-        return styles.gayedOutStyle
+        setAdvancedStyle(styles.grayedOutStyle)
+        break
       default:
-        return styles.containerStyle
+        setAdvancedStyle(props.containerStyle)
     }
-  }
+  }, [props.status])
 
-  render() {
-    const {
-      containerStyle,
-      keyboardType,
-      value,
-      status,
-      onSubmitEditing,
-      placeholder,
-      color,
-      isEditable,
-      holderIconName,
-      onChangeText,
-      secureTextEntry,
-      sideComponent,
-      onFocus,
-      onBlur,
-      maxLength,
-      style,
-    } = this.props
-    return (
-      <View
-        style={[
-          styles.container,
-          this.advencedStyle(),
-          containerStyle,
-        ]}
-      >
-        <TextInput
-          ref={(r) => (this.ref = r)}
-          style={[styles.defaultStyle, style]}
-          keyboardType={keyboardType}
-          underlineColorAndroid="transparent"
-          value={value}
-          onFocus={() => {
-            this.setState({ status: IS_FOCUS }, () => {
-              onFocus()
-            })
-          }}
-          onBlur={() => {
-            this.setState({ status: IS_BLUR }, () => {
-              onBlur()
-            })
-          }}
-          onChangeText={onChangeText}
-          maxLength={maxLength}
-          onSubmitEditing={onSubmitEditing}
-          placeholder={placeholder}
-          placeholderTextColor={colors.grey_550}
-          color={status === IS_GRAYED_OUT ? colors.grey_550 : color}
-          secureTextEntry={secureTextEntry}
-          editable={isEditable || status !== IS_GRAYED_OUT}
-        />
-        {
-          // action component for example
-          sideComponent
-        }
-        {holderIconName ? (
-          <View
-            style={[
-              styles.sideIcon,
-              {
-                backgroundColor:
-                  this.state.status === IS_FOCUS
-                    ? colors.blue_400_alpha
-                    : colors.grey_200,
-              },
-            ]}
-          >
-            <RemixIcon
-              name={holderIconName}
-              color={
-                this.state.status === IS_FOCUS
-                  ? colors.blue_400
-                  : colors.grey_300
-              }
-              size={16}
-              style={{ alignItems: 'center' }}
-            />
-          </View>
-        ) : null}
-      </View>
-    )
-  }
+  return (
+    <View style={[styles.container, advancedStyle, containerStyle]}>
+      <TextInput
+        style={[styles.defaultStyle, style]}
+        keyboardType={keyboardType}
+        underlineColorAndroid="transparent"
+        value={value}
+        onFocus={() => {
+          setAdvancedStyle(styles.focusStyle)
+          setStatus(IS_FOCUS)
+          onFocus()
+        }}
+        onBlur={() => {
+          setAdvancedStyle(styles.containerStyle)
+          setStatus(IS_BLUR)
+          onBlur()
+        }}
+        onChangeText={onChangeText}
+        maxLength={maxLength}
+        onSubmitEditing={onSubmitEditing}
+        placeholder={placeholder}
+        placeholderTextColor={colors.grey_550}
+        color={status === IS_GRAYED_OUT ? colors.grey_550 : color}
+        secureTextEntry={secureTextEntry}
+        editable={isEditable}
+      />
+      {
+        // action component for example
+        sideComponent
+      }
+      {holderIconName ? (
+        <View
+          style={[
+            styles.sideIcon,
+            {
+              backgroundColor:
+                status === IS_FOCUS
+                  ? colors.blue_400_alpha
+                  : colors.grey_200,
+            },
+          ]}
+        >
+          <RemixIcon
+            name={holderIconName}
+            color={
+              status === IS_FOCUS ? colors.blue_400 : colors.grey_300
+            }
+            size={16}
+            style={{ alignItems: 'center' }}
+          />
+        </View>
+      ) : null}
+    </View>
+  )
 }
 
 TextInput.propTypes = {

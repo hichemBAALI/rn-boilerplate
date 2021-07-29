@@ -4,18 +4,22 @@ import { View } from 'react-native'
 import colors from '../../config/colors'
 import styles from './styles'
 
-const Separator = (props) => (
-  <View
-    style={[
-      styles.SeparatorStyle,
-      {
-        height: props.isVertical ? props.size : 1,
-        width: props.isVertical ? 1 : props.size,
-        backgroundColor: props.color,
-      },
-    ]}
-  />
-)
+const Separator = (props) => {
+  const { isVertical, size, color, style } = props
+  return (
+    <View
+      style={[
+        styles.SeparatorStyle,
+        style,
+        {
+          height: isVertical ? size : 1,
+          width: isVertical ? 1 : size,
+          backgroundColor: color,
+        },
+      ]}
+    />
+  )
+}
 
 Separator.propTypes = {
   isVertical: PropTypes.bool,

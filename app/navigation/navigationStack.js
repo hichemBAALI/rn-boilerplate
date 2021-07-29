@@ -25,7 +25,7 @@ import RemixIcon from '../utils/icon/RemixIcons'
 import HomeScreen from '../screens/HomeStack/HomeScreen'
 import ScanScreen from '../screens/ScanStack/ScanScreen'
 import SettingsScreen from '../screens/SettingsStack/SettingsScreen'
-import LoginScreen from '../screens/LoginStack/HomeScreen/LoginScreen'
+import LoginScreen from '../screens/LoginStack/LoginScreen/LoginScreen'
 
 const RootStack = createStackNavigator()
 const SplashStack = createStackNavigator()

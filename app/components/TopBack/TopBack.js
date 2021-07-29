@@ -23,25 +23,28 @@ const styles = StyleSheet.create({
   },
 })
 
-const TopBack = (props) => (
-  <TouchableOpacity
-    style={[styles.container, props.containerStyle]}
-    onPress={props.onPress}
-  >
-    <View style={styles.iconContainer}>
-      <RemixIcon
-        name={props.name}
-        size={props.size}
-        color={props.color}
-        style={{
-          transform: [
-            { rotateY: I18nManager.isRTL ? '180deg' : '0deg' },
-          ],
-        }}
-      />
-    </View>
-  </TouchableOpacity>
-)
+const TopBack = (props) => {
+  const { containerStyle, onPress, name, size, color } = props
+  return (
+    <TouchableOpacity
+      style={[styles.container, containerStyle]}
+      onPress={onPress}
+    >
+      <View style={styles.iconContainer}>
+        <RemixIcon
+          name={name}
+          size={size}
+          color={color}
+          style={{
+            transform: [
+              { rotateY: I18nManager.isRTL ? '180deg' : '0deg' },
+            ],
+          }}
+        />
+      </View>
+    </TouchableOpacity>
+  )
+}
 
 TopBack.propTypes = {
   onPress: PropTypes.func.isRequired,
